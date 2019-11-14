@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List Sitorbis</title>
+</head>
+<body>
+    <h2>This is the todo page</h2>
+    <ul>
+        {% for foo in query %}
+        <li>{{ foo.content }} - <a href="/deleteTodo/{{ foo.id }}/">Delete</a></li>
+        {% endfor %}
+    </ul>
+
+
+
+
+    <form action="/addTodo/" method="post">
+        {% csrf_token %}
+        <input type="text" name="content">
+        <input type="submit" value="Add Todo">
+    </form>
+</body>
+</html>

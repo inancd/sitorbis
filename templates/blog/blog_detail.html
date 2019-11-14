@@ -1,0 +1,10 @@
+{% extends 'include.html' %}
+
+{% block wrapper %}
+    <img src="{{ detail_list.picture.url }}" alt="">
+        <p>{{ detail_list.title }}</p>
+        <p>{{ detail_list.content }}</p>
+        <p>Category: {{ detail_list.category}}</p>
+        <p>Create Date: {{ detail_list.create_at|date:"d-m-Y"  }}</p>
+{% endblock %}
+

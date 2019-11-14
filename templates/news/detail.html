@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <img src="{{ detail_list.picture.url }}" alt=""><br/>
+        {{ detail_list.title }}<br/>
+        
+        {% for detail in detail_list.categories.all %}
+            <a href="{% url 'news:catdetail' detail.slug %}">{{ detail.title }}</a><br/>
+        {% endfor %}
+        {{ detail_list.author }}<br/>
+        {{ detail_list.overview }}
+        
+        
+    </div>
+</body>
+</html>

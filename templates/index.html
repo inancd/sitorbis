@@ -1,0 +1,56 @@
+{% extends 'include.html' %}
+{% load staticfiles %}
+
+    {% block wrapper %}
+         <!-- Sitorbis Profile -->
+        <section class="section">
+            <div class="container-profile">
+                <div class="strbs-profile">
+                    <img src="{% static 'images/camping-category-1.png' %}" alt="">
+                    <img src="{% static 'images/asset-1.png' %}" alt="">
+                </div>
+                <div class="strbs-logo">
+                    <img src="{% static 'images/sitorbislogo-3.png' %}" alt="">
+                </div>
+                <div class="strbs-traveler">
+                    <img src="{% static 'images/camping-category-1.png' %}" alt="">
+                    <img src="{% static 'images/asset-1.png' %}" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- Sitorbis Blog Slider -->
+        <section class="section">
+            <div class="container-blog">
+                <div class="owl-carousel owl-theme">
+                    {% for foo in query %}
+                        <div class="item strbs-blog">
+                        <div class="strbs-blog-img">
+                            <img src="{{ foo.picture.url }}" alt="">
+                        </div>
+                        <div class="strbs-blog-context">
+                            <div class="strbs-blog-context__category mrg-bttm10">
+                                <h4>Climbing</h4>
+                                <h5>{{ foo.category }}</h5>
+                            </div>
+                            <div class="strbs-blog-context__title mrg-bttm10">
+                                <a href="#">
+                                    <h3>{{ foo.title }}</h3>
+                                </a>
+                                <p>{{ foo.content }}</p>
+                            </div>
+                        </div>
+                        <div class="strbs-blog-button">
+                            <span>{{ foo.create_at|date:"d-m-Y" }}</span>
+                            <a href="{% url 'blog:index_detail' foo.slug %}" class="btn btn-green">Read More</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </section>
+        <section class="section-3">
+            <img src="images/book.jpeg" alt="">
+        </section>
+    </div>
+    {% endblock %}

@@ -1,0 +1,192 @@
+{% extends 'include.html' %}
+
+{% load staticfiles %}
+{% block wrapper %}
+    <!-- Sitorbis News Headline -->
+    <section class="">
+        <div class="container">
+            <div class="headline">
+                <div class="headline__slider">
+                    <div class="glide">
+                        <div class="glide__track" data-glide-el="track">
+                            <ul class="glide__slides">
+                                <li class="glide__slide">
+                                    <figure>
+                                        <img src="{% static 'images/news/auc.jpg' %}" alt="">
+                                        <figcaption>
+                                            <a href="" class="slider-title">Orange Razzletini Juice Cocktails You’ll
+                                                Actually Like</a>
+                                            <div class="slider-detail">
+                                                <a href="" class="slider-detail__user"><i
+                                                        class="far fa-user-circle"></i>Serhat
+                                                    Kayakuş</a>
+                                                <span class="slider-detail__comment"><i class="far fa-comments"></i>
+                                                        2 </span>
+                                                <span class="slider-detail__date"><i
+                                                        class="far fa-clock"></i>07.11.2019</span>
+
+                                            </div>
+                                        </figcaption>
+
+                                    </figure>
+                                </li>
+                                <li class="glide__slide"><img src="{% static 'images/news/tom.jpg' %}" alt=""></li>
+                                <li class="glide__slide"><img src="{% static 'images/news/landmark-81.jpg' %}" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="glide__arrows" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="headline__right">
+                    <div class="news-headline-card">
+                        <a href="index.html">
+                            <img src="{% static 'images/news/street.jpg' %}" alt="">
+                        </a>
+                        <figure>
+                            <figcaption>
+                                <a href="">
+                                    <h3>Orange Razzletini Juice Cocktails You’ll Actually Like</h3>
+                                </a>
+                                <span><a href="">İnanç Dağyolu</a></span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="news-headline-card">
+                        <a href="index.html">
+                            <img src="{% static 'images/news/street.jpg' %}" alt="">
+                        </a>
+
+                        <figure>
+                            <figcaption>
+                                <a href="">
+                                    <h3>Orange Razzletini Juice Cocktails You’ll Actually Like</h3>
+                                </a>
+                                <span><a href="">İnanç Dağyolu</a></span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="news">
+                <div class="news__blog">
+                    {% for news in news_list %}
+                    <!-- News Card İtem-->
+                    <div class="news-card">
+                        <a href="" class="news-card__link"><img src="{{ news.picture.url }}"
+                                                                class="news-card__img"
+                                                                alt=""></a>
+                        <div class="card-detail">
+                            {% for category in news.categories.all %}
+                                <span class="card-detail__category"><a href="{% url 'news:catdetail' category.slug %}">{{ category.title }}</a></span>
+                            {% endfor %}
+
+                            <a href="{% url 'news:detail' news.slug %}" class="card-detail__link">
+                                <h4>{{ news.title }}</h4>
+                            </a>
+                            <p class="card-detail__content">{{ news.overview }}</p>
+                            <div class="card-detail__bottom">
+                                <a href="javascript:void(0)"><i class=""></i>{{ news.author }}</a>
+                                <span class="create-date">{{ news.timestamp }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- News Card İtem-->
+                    <div class="news-card">
+                        <a href="" class="news-card__link"><img src="{% static 'images/news/mirror-lake.jpg' %}"
+                                                                class="news-card__img" alt=""></a>
+                        <div class="card-detail">
+                            <span class="card-detail__category"><a href="">CATEGORY</a></span>
+                            <a href="javascript:void(0)" class="card-detail__link">
+                                <h4>Word on the Street: the Playful</h4>
+                            </a>
+                            <p class="card-detail__content">Guests to this witty house in Melbourne are warmly
+                                welcomed before even stepping
+                                inside the front door, thanks to a cool design concept by OOF! architecture. </p>
+                            <div class="card-detail__bottom">
+                                <a href="javascript:void(0)"><i class=""></i>Serhat Kayakuş</a>
+                                <span class="create-date">30.10.2019</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- News Card İtem-->
+                    <div class="news-card">
+                        <div class="news-card__link"><a href="" class=""><img
+                                src="{% static 'images/news/landmark-81.jpg' %}"
+                                class="news-card__img" alt=""></a></div>
+                        <div class="card-detail">
+                            <span class="card-detail__category"><a href="">CATEGORY</a></span>
+                            <a href="javascript:void(0)" class="card-detail__link">
+                                <h4>Word on the Street: the Playful</h4>
+                            </a>
+                            <p class="card-detail__content">Guests to this witty house in Melbourne are warmly
+                                welcomed before even stepping
+                                inside the front door, thanks to a cool design concept by OOF! architecture. </p>
+                            <div class="card-detail__bottom">
+                                <a href="javascript:void(0)"><i class=""></i>Serhat Kayakuş</a>
+                                <span class="create-date">30.10.2019</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news__sidebar">
+                    <div class="sidebar-popular">
+                        <h4>Popular News</h4>
+                        <!--News Sidebar İtem-->
+                        <div class="sidebar-popular__content">
+                            <div class="popular-link">
+                                <a href="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
+                            </div>
+                            <div class="popular-image">
+                                <img src="{% static 'images/news/landmark-81.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <!--News Sidebar İtem-->
+                        <div class="sidebar-popular__content">
+                            <div class="popular-link">
+                                <a href="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
+                            </div>
+                            <div class="popular-image">
+                                <img src="{% static 'images/news/tom.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <!--News Sidebar İtem-->
+                        <div class="sidebar-popular__content">
+                            <div class="popular-link">
+                                <a href="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
+                            </div>
+                            <div class="popular-image">
+                                <img src="{% static 'images/news/tom.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-newsletter">
+                        <img src="{% static 'images/rocketnewsletter.png' %}" alt="">
+                        <h4>Newsletter Subscribe</h4>
+                        <h6>Get the Latest Posts & Articles in Your Email</h6>
+                        <div class="sidebar-newsletter__form">
+                            <form action="">
+                                <input type="email" name="email" class="form-control"
+                                       placeholder="Enter Your E-mail Address">
+
+                            </form>
+                            <button type="submit" class="btn-news btn-green">Subscribe <i
+                                    class="far fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+

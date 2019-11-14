@@ -1,0 +1,13 @@
+{% extends 'include.html' %}
+
+{% block wrapper %}
+    Welcome Category detail<br>
+    <hr>
+    {{ category_list.title }}
+    <hr>
+    {% for category in category_list.news_set.all %}
+        {{ category.title }}
+    {% endfor %}
+
+    
+{% endblock %}

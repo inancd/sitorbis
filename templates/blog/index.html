@@ -1,0 +1,38 @@
+{% extends 'include.html' %}
+
+    {% block wrapper %}
+    <div class="ui container">
+        <div class="ui items">
+            {% for foo in query %}
+          <div class="item">
+            <div class="ui small image">
+              <img src="{{ foo.picture.url }}">
+            </div>
+            <div class="content">
+              <div class="header"><a href="{% url 'blog:index_detail' foo.slug %}">{{ foo.title }}</a></div>
+              <div class="meta">
+                <span class="price">{{ foo.category }}</span>
+                <span class="stay">{{ foo.create_at|date:"d-m-Y" }}</span>
+              </div>
+              <div class="description">
+                <p>{{ foo.content }}</p>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+
+        {% for foo in cat_detail %}
+            <a href="{% url 'blog:category-det' foo.category_slug %}">Merhaba</a>
+        {% endfor %}
+
+
+        </div>
+    </div>
+
+    {% endblock %}
+
+
+
+
+</body>
+</html>
