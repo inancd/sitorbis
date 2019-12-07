@@ -10,9 +10,11 @@ from .models import News, Category
 
 def Page(request):
     queryset = News.objects.filter(featured=True)
+    queryslider = News.objects.filter(slider_accept=True)
 
     context = {
-        'news_list': queryset
+        'news_list': queryset,
+        'slider_list': queryslider
     }
     return render(request, 'news/index.html', context)
 

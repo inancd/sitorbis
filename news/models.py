@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from ckeditor.fields import RichTextField
 
 from sitorbis.utils import unique_slug_generator
 from django.db.models.signals import pre_save
@@ -36,14 +37,14 @@ pre_save.connect(save_title_slug, sender=Category)
 class News(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, blank=True, null=True)
-    overview = models.TextField()
+    body = RichTextField()
     timestamp = models.DateTimeField(auto_now_add=True)
     comment_count = models.IntegerField(default=0)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     picture = models.ImageField(upload_to='media/news/%Y/%m/%d/')
     categories = models.ManyToManyField(Category)
     featured = models.BooleanField()
-
+    slider_accept = models.BooleanField()
     def __str__(self):
         return self.title
 

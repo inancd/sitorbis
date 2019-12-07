@@ -1,21 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <div>
-        <img src="{{ detail_list.picture.url }}" alt=""><br/>
-        {{ detail_list.title }}<br/>
-        
-        {% for detail in detail_list.categories.all %}
-            <a href="{% url 'news:catdetail' detail.slug %}">{{ detail.title }}</a><br/>
-        {% endfor %}
-        {{ detail_list.author }}<br/>
-        {{ detail_list.overview }}
-        
-        
-    </div>
-</body>
-</html>
+{% extends 'include.html' %}
+{% load staticfiles %}
+
+{% block wrapper %}
+
+        <section class="section">
+            <div class="container">
+                <div class="strbs-topbar">
+                    <img src="{% static 'images/sitorbislogo-3.png' %}" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="strbs-post-detail">
+                    <div class="strbs-post-detail__content">
+                        <div class="strbs-post-detail__image">
+                            <img src="{{ detail_list.picture.url }}" alt="" width="100%">
+                        </div>
+                        <h2 class="strbs-post-detail__title">{{ detail_list.title }}</h2>
+                        <div class="strbs-post-detail__category">
+                            <h3>General</h3>
+                        </div>
+                        <div class="strbs-post-detail__meta">
+                            <a href=""><i class="far fa-user"></i>{{ detail_list.author }}</a>
+                            <span><i class="far fa-clock"></i>{{ detail_list.timestamp }}</span>
+                        </div>
+                        <div class="strbs-post-detail__text">
+                            {{ detail_list.body|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

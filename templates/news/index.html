@@ -6,66 +6,20 @@
 <section class="section">
             <div class="container">
                 <div class="strbs-slider">
-                    <div class="strbs-slider__item">
-                        <a href="#"><img src="{% static 'images/news/tom.jpg' %}" alt=""></a>
+                    {% for slider in slider_list %}
+                        <div class="strbs-slider__item">
+                        <a href="#"><img src="{{ slider.picture.url }}" alt=""></a>
                         <div class="strbs-slider__overlay">
                             <div class="strbs-slider__category">
                                 <a href="" rel="category tag">Adventure Tourism</a>
                             </div>
-                            <h2><a href="">Lorem ipsum is placeholder</a></h2>
+                            <h2><a href="">{{ slider.title | truncatechars:20 }}</a></h2>
                             <div class="strbs-slider__datetime">
                                 <span>October 2, 2019</span>
                             </div>
                         </div>
                     </div>
-                    <div class="strbs-slider__item">
-                        <img src="{% static 'images/news/az0.png' %}" alt="">
-                        <div class="strbs-slider__overlay">
-                            <div class="strbs-slider__category">
-                                <a href="" rel="category tag">Adventure Tourism</a>
-                            </div>
-                            <h2><a href="">Lorem ipsum is placeholder</a></h2>
-                            <div class="strbs-slider__datetime">
-                                <span>October 2, 2019</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="strbs-slider__item">
-                        <img src="{% static 'images/news/common-kingfisher.png' %}" alt="">
-                        <div class="strbs-slider__overlay">
-                            <div class="strbs-slider__category">
-                                <a href="" rel="category tag">Adventure Tourism</a>
-                            </div>
-                            <h2><a href="">Lorem ipsum is placeholder</a></h2>
-                            <div class="strbs-slider__datetime">
-                                <span>October 2, 2019</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="strbs-slider__item">
-                        <img src="{% static 'images/news/flamingo-park.png' %}" alt="">
-                        <div class="strbs-slider__overlay">
-                            <div class="strbs-slider__category">
-                                <a href="" rel="category tag">Adventure Tourism</a>
-                            </div>
-                            <h2><a href="">Lorem ipsum is placeholder</a></h2>
-                            <div class="strbs-slider__datetime">
-                                <span>October 2, 2019</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="strbs-slider__item">
-                        <img src="{% static 'images/news/lindis-pass.png' %}" alt="">
-                        <div class="strbs-slider__overlay">
-                            <div class="strbs-slider__category">
-                                <a href="" rel="category tag">Adventure Tourism</a>
-                            </div>
-                            <h2><a href="">Lorem ipsum is placeholder</a> </h2>
-                            <div class="strbs-slider__datetime">
-                                <span>October 2, 2019</span>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <!--<div class="container">
@@ -105,14 +59,14 @@
                             <div class="strbs-card__post-content">
                                 {% for category in news.categories.all %}
                                     <div class="strbs-card__post-category">
-                                        <a href="">{{ category.title }}</a>
+                                        <a href="{% url 'news:catdetail' category.slug %} ">{{ category.title }}</a>
                                     </div>
                                 {% endfor %}
                                 <div class="strbs-card__post-title">
-                                    <h4><a href="#">{{ news.title }}</a></h4>
+                                    <h4><a href="{% url 'news:detail' news.slug %}">{{ news.title }}</a></h4>
                                 </div>
                                 <div class="strbs-card__post-text">
-                                    <p>{{ news.overview }}</p>
+                                    <p>{{ news.body | truncatechars:200 |safe}}</p>
                                 </div>
                                 <div class="strbs-card__post-meta">
                                     <span><i class="far fa-user"></i>{{ news.author }}</span>
@@ -121,31 +75,8 @@
                             </div>
                         </div>
                         {% endfor %}
-
-
-                        <div class="strbs-card__post">
-                            <div class="strbs-card__post-image">
-                                <img src="images/news/mirror-lake.jpg" alt="" width="300px">
-                            </div>
-                            <div class="strbs-card__post-content">
-                                <div class="strbs-card__post-category">
-                                    <a href="#">General</a>
-                                </div>
-                                <div class="strbs-card__post-title">
-                                    <h4><a href="">Lorem ipsum is placeholder text commonly used in</a></h4>
-                                </div>
-                                <div class="strbs-card__post-text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco</p>
-                                </div>
-                                <div class="strbs-card__post-meta">
-                                    <span><i class="far fa-user"></i>Serhat Kayakuş</span>
-                                    <span><i class="far fa-clock"></i>29 July, 2020</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+
                     <div class="strbs-sidebar">
                         <div class="strbs-sidebar__populer">
                             <h4>Populer News</h4>
@@ -174,7 +105,7 @@
                         </div>
 
                         <div class="strbs-sidebar__newsletter">
-                            <img src="images/rocketnewsletter.png" alt="">
+                            <img src="{% static 'images/rocketnewsletter.png' %}" alt="">
                             <h4>Newsletter Subscribe</h4>
                             <h6>Get the Latest Posts & Articles in Your Email</h6>
                             <div class="strbs-sidebar__form">
@@ -187,19 +118,5 @@
                 </div>
             </div>
         </section>
-        <footer>
-            <div class="container">
-                <div class="footer">
-                    <img src="{% static 'images/sitorbislogo-3.png' %}" alt="">
-                    <div class="footer-social">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-facebook"></i>
-                        <i class="fab fa-twitter-square"></i>
-                        <i class="fab fa-youtube"></i>
-                    </div>
-
-                </div>
-            </div>
-        </footer>
 {% endblock %}
 
