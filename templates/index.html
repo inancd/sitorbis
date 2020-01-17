@@ -2,55 +2,38 @@
 {% load static %}
 
     {% block wrapper %}
-         <!-- Sitorbis Profile -->
-        <section class="section">
-            <div class="container-profile">
-                <div class="strbs-profile">
-                    <img src="{% static 'images/camping-category-1.png' %}" alt="">
-                    <img src="{% static 'images/asset-1.png' %}" alt="">
-                </div>
-                <div class="strbs-logo">
-                    <img src="{% static 'images/sitorbislogo-3.png' %}" alt="">
-                </div>
-                <div class="strbs-traveler">
-                    <img src="{% static 'images/camping-category-1.png' %}" alt="">
-                    <img src="{% static 'images/asset-1.png' %}" alt="">
-                </div>
-            </div>
-        </section>
-        <!-- Sitorbis Blog Slider -->
-        <section class="section">
-            <div class="container-blog">
-                <div class="owl-carousel owl-theme">
-                    {% for foo in query %}
-                        <div class="item strbs-blog">
-                        <div class="strbs-blog-img">
-                            <img src="{{ foo.picture.url }}" alt="Photo">
-                        </div>
-                        <div class="strbs-blog-context">
-                            <div class="strbs-blog-context__category mrg-bttm10">
-                                <h4>Climbing</h4>
-                                <h5>{{ foo.category }}</h5>
-                            </div>
-                            <div class="strbs-blog-context__title mrg-bttm10">
-                                <a href="#">
-                                    <h3>{{ foo.title }}</h3>
-                                </a>
-                                <p>{{ foo.content }}</p>
-                            </div>
-                        </div>
-                        <div class="strbs-blog-button">
-                            <span>{{ foo.create_at|date:"d-m-Y" }}</span>
-                            <a href="{% url 'blog:index_detail' foo.slug %}" class="btn btn-green">Read More</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+        <div id="wrapper">
+        <header class="header">
+            <div class="strbs-container">
+                <!--Navigation-->
+                <nav class="navbar">
+                    <a href=""><img class="navbar__logo" src="{% static 'images/Sitorbisyesil.png' %}" alt=""></a>
+                    <ul class="navbar__nav">
+                        <li class="navbar__item"><a href="" class="navbar__link">Home</a></li>
+                        <li class="navbar__item"><a href="" class="navbar__link">News</a></li>
+                    </ul>
+                </nav>
+                <!--/Navigation/-->
 
+                <div class="header__headline">
+                    <div class="header__text-box">
+                        <h2>Ecosystem of Special Interest Tourism</h2>
+                        <span class="header__line"></span>
+                        <p>Sitorbis is a socio-digital platform that gather stakeholders of special interest tourism and
+                            enables
+                            them to interact.</p>
+                        <span class="header__italic">“Tourism for non-tourists”</span>
+                        <button class="btn btn-transperant">Write To Us</button>
+                    </div>
+                </div>
+            </div>
+            <div class="header__slider"></div>
+        </header>
+
+        <section class="strbs-magazine">
+            <div class="strbs-container">
+                <div class="iconstrbs1"></div>
+                <div class="iconstrbs2"></div>
+            </div>
         </section>
-        <section class="section-3">
-            <img src="images/book.jpeg" alt="">
-        </section>
-    </div>
     {% endblock %}
