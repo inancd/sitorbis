@@ -10,4 +10,5 @@ bin/*
 lib/*
 static/*
 .idea/*
-
+manage
+sitorbis/wsgi
