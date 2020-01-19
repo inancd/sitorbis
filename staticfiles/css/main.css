@@ -485,11 +485,11 @@ body {
 }
 
 .strbs-footer__info {
-  width: 23.3%;
+  width: 66.6%;
 }
 
 .strbs-footer__logo {
-  width: 10.6%;
+  width: 33.3%;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -536,6 +536,21 @@ body {
   font-style: italic;
   padding: 10px 0;
   font-size: 14px;
+}
+
+@media (min-width: 1200px) {
+  .strbs-footer__info {
+    width: 23.3%;
+  }
+  .strbs-footer__logo {
+    width: 10.6%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .strbs-footer__logo img {
+    width: 100px;
+  }
 }
 
 .navbar {
