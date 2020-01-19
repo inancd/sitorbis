@@ -36,4 +36,37 @@
                 <div class="iconstrbs2"></div>
             </div>
         </section>
+        <section class="strbs-category">
+            <div class="strbs-container-full">
+                <div class="strbs-owl">
+                    <div class="strbs-owl__carousel owl-carousel owl-theme">
+                        {% for foo in query_list %}
+                            <div class="item mrgn-top50">
+                                <div class="item__strbs-carousel">
+                                    <div class="item__strbs-carousel-image">
+                                        <img src="{{ foo.picture.url }}" alt="">
+                                    </div>
+                                    <h3 class="item__strbs-carousel-title">{{ foo.title }}</h3>
+                                    <p class="item__strbs-carousel-content">{{ foo.body }}</p>
+                                    <div class="item__strbs-carousel-button">
+                                        <button class="btn btn-transperant">SEE DETAIL</button>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <!--/Strbs Owl/-->
+                    </div>
+
+                </div>
+            </div>
+            <div class="strbs-category__title">
+
+            </div>
+            <div class="strbs-category__title2">
+
+                <h1 style="transform: rotate(-45deg);"><img src="{% static 'images/xd/line.png' %}" alt="">SIT Categories</h1>
+            </div>
+        </section>
+
+        </div>
     {% endblock %}

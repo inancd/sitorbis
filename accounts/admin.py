@@ -1,7 +1,5 @@
 from django.contrib import admin
-
-from .models import HomeClass
-
+from .models import Account
 # Register your models here.
 
-admin.site.register(HomeClass)
+admin.site.register(Account)

@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'news.apps.NewsConfig',
     'todo.apps.TodoConfig',
+    'pages.apps.PagesConfig',
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
