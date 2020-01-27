@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-Login Page
+<h2>Login</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in login_form %}
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+                <small style="color: grey;">{{ field.help_text }}</small>
+            {% endif %}
+        {% endfor %}
+        <button>Log In</button>
+    </form>
 </body>
 </html>
