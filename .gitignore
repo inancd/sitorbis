@@ -10,5 +10,9 @@ bin/*
 lib/*
 static/*
 .idea/*
-manage
 sitorbis/wsgi
+accounts/migrations/*
+news/migrations/*
+accounts/migrations/*
+blog/migrations/*
+page/migrations/*

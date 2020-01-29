@@ -30,7 +30,7 @@ body {
   border: none;
   padding: 10px;
   text-align: center;
-  margin: 15px 0 15px 20px;
+  margin: 15px 0 15px 10px;
   text-transform: uppercase;
 }
 
@@ -52,11 +52,29 @@ body {
 }
 
 .mrgn-top150 {
-  margin-top: 150px;
+  margin-top: 50px;
+}
+
+@media (min-width: 1200px) {
+  .mrgn-top150 {
+    margin-top: 150px;
+  }
 }
 
 .mrgn-top180 {
   margin-top: 180px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #e6ecf5;
+  font-size: .875rem;
+  border-radius: .25em;
+  line-height: 1.75;
+  padding: 1.5rem 1.1rem .5rem;
+  margin-bottom: 20px;
 }
 
 .strbs-container {
@@ -98,22 +116,22 @@ body {
 }
 
 .header h2 {
-  padding: 10px 20px;
+  padding: 10px 10px;
 }
 
 .header p {
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .header__line {
   width: 65px;
   height: 1px;
   background-color: #B1B1B1;
-  margin: 0px 20px 20px 22px;
+  margin: 0px 23px 20px 12px;
 }
 
 .header__italic {
-  padding: 10px 20px;
+  padding: 10px 10px;
   font-style: italic;
   font-size: 16px;
 }
@@ -172,14 +190,23 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 50px;
 }
 
 .strbs-emagazine__image img {
   width: 200px;
 }
 
-.strbs-emagazine__title img {
-  width: 200px;
+.strbs-emagazine__title h2 {
+  padding: 10px 10px;
+}
+
+.strbs-emagazine__title h3 {
+  padding: 0px 10px;
+}
+
+.strbs-emagazine__title p {
+  padding: 10px 10px;
 }
 
 @media (min-width: 1200px) {
@@ -275,7 +302,13 @@ body {
 }
 
 .strbs-owl__carousel {
-  width: 63.3% !important;
+  width: 100% !important;
+}
+
+@media (min-width: 1200px) {
+  .strbs-owl__carousel {
+    width: 63.3% !important;
+  }
 }
 
 .item__strbs-carousel {
@@ -316,12 +349,12 @@ body {
 }
 
 .strbs-login__title {
-  padding: 20px;
+  padding: 20px 10px;
   font-size: 18px;
 }
 
 .strbs-login__context {
-  padding: 0px 20px;
+  padding: 0px 10px;
   font-size: 14px;
   font-style: italic;
 }
@@ -342,6 +375,10 @@ body {
     display: block;
     width: 33.3%;
   }
+  .strbs-login__title {
+    padding: 20px;
+    font-size: 18px;
+  }
   .strbs-login__tagbg {
     background: url(../images/tagbg2.png);
     border-radius: 50px;
@@ -361,6 +398,7 @@ body {
   }
   .strbs-login__content {
     width: 25%;
+    padding: 0px 20px;
   }
   .strbs-login__context {
     font-size: 18px;
@@ -385,12 +423,12 @@ body {
 }
 
 .strbs-message__title {
-  padding: 20px;
+  padding: 10px;
   font-size: 18px;
 }
 
 .strbs-message__context {
-  padding: 0 20px;
+  padding: 0 10px;
   font-size: 14px;
 }
 
@@ -415,16 +453,75 @@ body {
             order: 2;
     position: absolute;
     top: 0;
-    right: -310px;
+    right: -110px;
     width: 66.6%;
   }
   .strbs-message__title {
     font-size: 24px;
+    padding: 20px;
   }
   .strbs-message__context {
     font-size: 18px;
     font-style: italic;
+    padding: 0 20px;
   }
+}
+
+.strbs-contact__tagbg-title {
+  display: none;
+}
+
+.strbs-contact__content {
+  width: 100%;
+}
+
+.strbs-contact__contactus {
+  background-color: #414141;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.strbs-contact__info {
+  margin-top: 25px;
+}
+
+.strbs-contact__info a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 400;
+  margin-right: 77px;
+  font-weight: 300;
+  margin-top: 50px;
+}
+
+.strbs-contact__info a i {
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+.strbs-contact__address {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.strbs-contact__address a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.strbs-contact__address i {
+  font-size: 34px;
+  margin-right: 20px;
+  height: 100%;
 }
 
 @media (min-width: 1200px) {
@@ -452,6 +549,7 @@ body {
     height: 457px;
   }
   .strbs-contact__tagbg-title {
+    display: block;
     position: relative;
     left: 200px;
     top: 220px;
@@ -473,7 +571,7 @@ body {
     font-size: 16px;
     text-decoration: none;
     font-weight: 400;
-    margin-right: 100px;
+    margin-right: 77px;
     font-weight: 300;
   }
   .strbs-contact__info a i {
@@ -668,7 +766,7 @@ body {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   border-radius: 50px;
-  display: none;
+  z-index: -9999;
 }
 
 @media (min-width: 1200px) {
@@ -4020,5 +4118,88 @@ body {
     -webkit-animation-iteration-count: 1 !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+.strbs-loginpage {
+  width: 1300px;
+  margin: 0 auto;
+  height: 100vh;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.strbs-loginpage__headline {
+  width: 50%;
+  padding: 0 35px;
+}
+
+.strbs-loginpage__loginform {
+  width: 50%;
+}
+
+.strbs-loginpage__container {
+  background-color: #fff;
+  color: #303030;
+}
+
+.strbs-loginpage__container h5 {
+  padding: 20px;
+  font-size: 18px;
+}
+
+.strbs-loginpage__content {
+  padding: 35px 25px;
+  border-top: 1px solid #e6ecf5;
+}
+
+.strbs-loginpage__form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.strbs-loginpage__form-group ::-webkit-input-placeholder {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #888da8;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.strbs-loginpage__form-group :-ms-input-placeholder {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #888da8;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.strbs-loginpage__form-group ::-ms-input-placeholder {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #888da8;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.strbs-loginpage__form-group ::placeholder {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #888da8;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 /*# sourceMappingURL=main.css.map */
