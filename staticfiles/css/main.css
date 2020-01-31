@@ -209,6 +209,14 @@ body {
   padding: 10px 10px;
 }
 
+.strbs-emagazine__help {
+  padding: 10px 10px;
+}
+
+.strbs-emagazine__help img {
+  width: 150px;
+}
+
 @media (min-width: 1200px) {
   .strbs-emagazine {
     -webkit-box-orient: horizontal;
@@ -733,7 +741,13 @@ body {
 
 .strbs-magazine {
   position: relative;
-  height: 500px;
+  height: 600px;
+}
+
+@media (min-width: 1200px) {
+  .strbs-magazine {
+    height: 500px;
+  }
 }
 
 .iconstrbs1 {
