@@ -13,6 +13,4 @@ static/*
 sitorbis/wsgi
 accounts/migrations/*
 news/migrations/*
-accounts/migrations/*
 blog/migrations/*
-page/migrations/*
