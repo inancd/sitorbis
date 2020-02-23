@@ -1,0 +1,28 @@
+.strbs-detail-sidebar {
+  padding: 0px 0px 0px 20px;
+  width: 25%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  &__profile-image{
+    width: 240px;
+    height: 240px;
+    border-radius: 100%;
+    border: 1px solid #c4c4c4;
+    margin-bottom: 20px;
+    img {
+      padding: 5px;
+    }
+  }
+  &__profile-nickname {
+    text-align: center;
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+    }
+  }
+}

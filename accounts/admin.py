@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from accounts.models import Account, ProClass
+from accounts.models import Account, Profile
 # Register your models here.
 
 class UserCreationForm(forms.ModelForm):
@@ -36,7 +36,7 @@ class UserChangeForm(forms.ModelForm):
         fields = ('email', 'password', 'username', 'body', 'is_activate', 'is_admin')
 
     def clean_password(self):
-        return self.initial
+        return self.initial["password"]
 
 class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
@@ -47,7 +47,7 @@ class UserAdmin(BaseUserAdmin):
 
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('username', 'last_login')}),
+        ('Personal info', {'fields': ('username', 'last_login', 'fullname')}),
         ('Permissions', {'fields': ('is_admin',)}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
@@ -55,7 +55,7 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'username', 'body', 'password1', 'password2'),
+            'fields': ('email', 'username', 'fullname', 'password1', 'password2'),
         }),
     )
     search_fields = ('email',)
@@ -65,5 +65,5 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(Account, UserAdmin)
-admin.site.register(ProClass)
+admin.site.register(Profile)
 admin.site.unregister(Group)

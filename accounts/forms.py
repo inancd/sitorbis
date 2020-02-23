@@ -7,10 +7,10 @@ from accounts.models import Account
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=60, help_text='Required. Add a valid email address')
-
+    password1 = forms.CharField(widget=forms.PasswordInput, help_text='', label='Password')
     class Meta:
         model = Account
-        fields = ('email', 'username', 'password1', 'password2')
+        fields = ('email', 'username', 'fullname', 'password1', 'password2')
 
 
 class AccountauthenticationForm(forms.ModelForm):

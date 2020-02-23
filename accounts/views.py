@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib import messages
 from accounts.forms import RegistrationForm, AccountauthenticationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -9,7 +11,7 @@ def login_view(request):
     user = request.user
 
     if user.is_authenticated:
-        return redirect("index")
+        return redirect("blog:index")
 
     if request.POST:
         form = AccountauthenticationForm(request.POST)
@@ -21,7 +23,7 @@ def login_view(request):
 
             if user:
                 login(request, user)
-                return redirect('index')
+                return redirect('blog:index')
     else:
         form = AccountauthenticationForm()
 
@@ -38,7 +40,8 @@ def registiration_view(request):
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
             login(request, account)
-            return redirect('homepage')
+            messages.success(request, f'Account created for {email}!')
+            return redirect('blog:index')
         else:
             context['registration_form'] = form
     else:
@@ -49,4 +52,9 @@ def registiration_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('index')
+    messages.success(request, f'You have successfully logged out.')
+    return redirect('blog:index')
+
+@login_required
+def profile_view(request):
+    return render(request, 'accounts/profile.html')

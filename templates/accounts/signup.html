@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h2>Register</h2>
-    <form action="" method="post">
-        {% csrf_token %}
-        {% for field in registration_form %}
-            {{ field.label_tag }}
-            {{ field }}
-            {% if field.help_text %}
-                <small style="color: grey;">{{ field.help_text }}</small>
-            {% endif %}
-        {% endfor %}
-        <button>Register</button>
-    </form>
-</body>
-</html>
+{% extends 'accounts/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block wrapper %}
+    <div class="strbs-login-container">
+        <div class="strbs-login-wrapper">
+            <div class="strbs-login">
+                <h5>Login to Your Account</h5>
+                <div class="strbs-login__form">
+                    <form action="" method="post">
+                    {% csrf_token %}
+                        {{ registration_form|crispy }}
+                     <button type="submit" class="strbs-btn strbs-btn-primary">Sign Up</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

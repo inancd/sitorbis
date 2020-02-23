@@ -1,16 +1,26 @@
-{% extends 'include.html' %}
+{% extends 'blog/base.html' %}
 
     {% block wrapper %}
-        <div>
-            {% if request.user.is_authenticated %}
-                <p>Hello, {{ request.user.username }} / <a href="{% url 'logout' %}">Logout</a></p>
-            {% else %}
-                <ul>
-                <li><a href="{% url 'signup' %}">Register</a></li>
-                <li><a href="{% url 'loginpage' %}">Login</a></li>
-                </ul>
-            {% endif %}
+        <section class="section">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3">
+                {% for foo in page %}
+                      <div class="col mb-4">
+                        <div class="card">
+                          <img src="{{ foo.picture.url }}" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title"><a href="{% url 'blog:detail' foo.slug %}">{{ foo.title }}</a></h5>
+                            <p class="card-text">{{ foo.text|safe|truncatechars:200}}</p>
+                          </div>
+                            <div class="card-footer">
+                                <small class="text-muted">{{ foo.dated_posted|date:'d F, Y' }}</small>
+                                <small class="text-muted"><a href="#">{{ foo.author.username }}</a></small>
+                            </div>
+                        </div>
+                      </div>
+                {% endfor %}
+                </div>
         </div>
-
+        </section>
     {% endblock %}
 

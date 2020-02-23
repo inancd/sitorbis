@@ -8,7 +8,7 @@ ALLOWED_HOSTS = []
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sitorbis_crm',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '1912inoksk1991!',
         'HOST': 'localhost',

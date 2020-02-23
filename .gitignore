@@ -3,6 +3,7 @@
 *.pot
 *.pyc
 *.cfg
+*.json
 __pycache__
 db.sqlite3
 media/*
@@ -14,3 +15,6 @@ sitorbis/wsgi
 accounts/migrations/*
 news/migrations/*
 blog/migrations/*
+pages/migrations/*
+todo/migrations/*
+node_modules/*
