@@ -1,26 +1,141 @@
 {% extends 'blog/base.html' %}
-
+{% load static %}
     {% block wrapper %}
         <section class="section">
             <div class="container">
-                <div class="row row-cols-1 row-cols-md-3">
-                {% for foo in page %}
-                      <div class="col mb-4">
-                        <div class="card">
-                          <img src="{{ foo.picture.url }}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title"><a href="{% url 'blog:detail' foo.slug %}">{{ foo.title }}</a></h5>
-                            <p class="card-text">{{ foo.text|safe|truncatechars:200}}</p>
-                          </div>
-                            <div class="card-footer">
-                                <small class="text-muted">{{ foo.dated_posted|date:'d F, Y' }}</small>
-                                <small class="text-muted"><a href="#">{{ foo.author.username }}</a></small>
+                <div class="owl-carousel owl-theme">
+                    {% for foo in slider %}
+                    <div class="item">
+                        <div class="strbs-owl-cards">
+                            <div class="strbs-owl-cards__image" style="background-image: url({{ foo.picture.url }});"></div>
+
+                                <a href="{% url 'blog:category' foo.category.slug %}" class="strbs-owl-cards__category">{{ foo.category.title }}</a>
+
+                            <h3 class="strbs-owl-cards__title">
+                                <a href="{% url 'blog:detail' foo.slug %}">{{ foo.title|truncatechars:40 }}</a>
+                            </h3>
+                            <div class="strbs-owl-cards__user-detail">
+                                <a href="" class="strbs-owl-cards__user-name">{{ foo.author.fullname }}</a>
+                                <a href="" class="strbs-owl-cards__last-date">{{ foo.dated_posted|date:'F d, Y' }}</a>
                             </div>
                         </div>
-                      </div>
-                {% endfor %}
+                    </div>
+                    {% endfor %}
+                     <div class="item">
+                        <div class="strbs-owl-cards">
+                            <img src="{% static 'images/news/az0.png' %}" alt="" class="strbs-owl-cards__image">
+                            <a href="" class="strbs-owl-cards__category">ADVENTURE TOURISM</a>
+                            <h3 class="strbs-owl-cards__title">
+                                <a href="">An Examination on Boutique Beer and Beer in Gastronomic Tourism</a>
+                            </h3>
+                            <div class="strbs-owl-cards__user-detail">
+                                <a href="" class="strbs-owl-cards__user-name">Daniel Fernandes</a>
+                                <a href="" class="strbs-owl-cards__last-date">Octaber 3, 2020</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="item">
+                        <div class="strbs-owl-cards">
+                            <img src="{% static 'images/news/common-kingfisher.png' %}" alt="" class="strbs-owl-cards__image">
+                            <a href="" class="strbs-owl-cards__category">ADVENTURE TOURISM</a>
+                            <h3 class="strbs-owl-cards__title">
+                                <a href="">An Examination on Boutique Beer and Beer in Gastronomic Tourism</a>
+                            </h3>
+                            <div class="strbs-owl-cards__user-detail">
+                                <a href="" class="strbs-owl-cards__user-name">Daniel Fernandes</a>
+                                <a href="" class="strbs-owl-cards__last-date">Octaber 3, 2020</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="item">
+                        <div class="strbs-owl-cards">
+                            <img src="{% static 'images/news/flamingo-park.png' %}" alt="" class="strbs-owl-cards__image">
+                            <a href="" class="strbs-owl-cards__category">ADVENTURE TOURISM</a>
+                            <h3 class="strbs-owl-cards__title">
+                                <a href="">An Examination on Boutique Beer and Beer in Gastronomic Tourism</a>
+                            </h3>
+                            <div class="strbs-owl-cards__user-detail">
+                                <a href="" class="strbs-owl-cards__user-name">Daniel Fernandes</a>
+                                <a href="" class="strbs-owl-cards__last-date">Octaber 3, 2020</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="item">
+                        <div class="strbs-owl-cards">
+                            <img src="{% static 'images/news/lindis-pass.png' %}" alt="" class="strbs-owl-cards__image">
+                            <a href="" class="strbs-owl-cards__category">ADVENTURE TOURISM</a>
+                            <h3 class="strbs-owl-cards__title">
+                                <a href="">An Examination on Boutique Beer and Beer in Gastronomic Tourism</a>
+                            </h3>
+                            <div class="strbs-owl-cards__user-detail">
+                                <a href="" class="strbs-owl-cards__user-name">Daniel Fernandes</a>
+                                <a href="" class="strbs-owl-cards__last-date">Octaber 3, 2020</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item"><h4>6</h4></div>
+
                 </div>
-        </div>
+            </div>
         </section>
+        <section class="section-2">
+            <div class="container">
+                <div class="strbs-wrapper-blog">
+                    <div class="strbs-wrapper-blog__content">
+                        <div class="strbs-wrapper-blog__heading">
+                            <span class="strbs-wrapper-blog__before"></span>
+                            <h6 class="strbs-wrapper-blog__widget">NEW POST</h6>
+                        </div>
+                        {% for foo in page %}
+                        <div class="strbs-wrapper-blog__image">
+                            <img src="{{ foo.picture.url }}" alt="">
+                        </div>
+                        <h3><a href="{% url 'blog:detail' foo.slug %}" class="strbs-wrapper-blog__title">{{ foo.title }}</a></h3>
+                        <a href="" class="strbs-wrapper-blog__context">{{ foo.text|safe|truncatechars:400}}</a>
+                        <div class="strbs-wrapper-blog__detail">
+                            <a href="" class="strbs-wrapper-blog__user-name">{{ foo.author.fullname }}</a>
+                            <span><a href="{% url 'blog:detail' foo.slug %}" class="strbs-wrapper-blog__read-more">READ MORE</a></span>
+                            <a href="" class="strbs-wrapper-blog__last-date">{{ foo.dated_posted|date:'F d, Y' }}</a>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                    <div class="strbs-wrapper-blog-sidebar">
+                        <div class="strbs-wrapper-blog-popular">
+                            <div class="strbs-wrapper-blog__heading">
+                                <span class="strbs-wrapper-blog__before"></span>
+                                <h6 class="strbs-wrapper-blog__widget">popular post</h6>
+                            </div>
+                            <div class="strbs-wrapper-blog-popular__list">
+                                <div class="strbs-wrapper-blog-popular__picture">
+                                    <img src="{% static 'images/news/az0.jpg' %}" alt="">
+                                </div>
+                                <div class="strbs-wrapper-blog-popular__context">
+                                    <h2><a href="">An Examination on Boutique Beer </a></h2>
+                                    <span><a href="">#hiking</a></span>
+
+                                </div>
+                            </div>
+                            <div class="strbs-wrapper-blog-popular__list">
+                                <div class="strbs-wrapper-blog-popular__picture">
+                                    <img src="{% static 'images/news/golden.jpg' %}" alt="">
+                                </div>
+                                <div class="strbs-wrapper-blog-popular__context">
+                                    <h2><a href="">An Examination on Boutique Beer </a></h2>
+                                    <span><a href="">#hiking</a></span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-2">
+
+        </section>
+
+
     {% endblock %}
 

@@ -1,3 +1,11 @@
+/*
+* Colors
+*/
+$color-white-200:#f2f2f2;
+$color-white-500:#F7F2EE;
+$color-grey-300:#303030;
+$color-green-500:#3A8F3D;
+
 *,
 *::before,
 *::after {
@@ -19,4 +27,8 @@ body {
 */
 .section {
   margin-top: 50px;
+}
+
+.section-2 {
+  margin-top:100px;
 }

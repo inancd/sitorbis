@@ -8,60 +8,114 @@
     <meta name=”description” content=”Sitorbis is a socio-digital platform that gather stakeholders of special interest tourism and enables them to interact.”/>
     <title>Sitorbis | Tourism for non-tourists</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
     <script src="https://kit.fontawesome.com/a873b4d106.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar">
   <div class="container">
-      <a class="navbar-brand" href="#">Sitorbis</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div class="strbs-flex-row strbs-justify-between strbs-align-items">
+        <!--Sitorbis Logo-->
+        <div class="strbs-navbar-logo">
+            <a href="{% url 'page:homepage' %}"><img class="strbs-navbar-logo__images" src="{% static 'images/logoyesil.png' %}" alt="Sitorbis Logo"></a>
+        </div>
+        <!--Sitorbis Menu-->
+        <ul class="strbs-navbar-nav strbs-flex-row">
+            <li class="strbs-navbar-nav__item">
+                <a class="strbs-navbar-nav__link" href="{% url 'blog:index' %}">Home</a>
+            </li>
+            <li class="strbs-navbar-nav__item">
+                <a class="strbs-navbar-nav__link" href="">Category</a>
+            </li>
+            <li class="strbs-navbar-nav__item">
+                <a class="strbs-navbar-nav__link" href="">Video</a>
+            </li>
+            <li class="strbs-navbar-nav__item">
+                <a class="strbs-navbar-nav__link" href="">Tags</a>
+            </li>
+        </ul>
+        <!--Sitorbis Search Form-->
+        <form action="" class="strbs-navbar-search">
+            <input type="text" class="strbs-navbar-search__input" placeholder="Search">
+            <button class="strbs-navbar-search__button">
+                <svg class="strbs-navbar-search__icon">
+                    <image xlink:href="{% static 'images/icons/search.svg' %}"></image>
+                </svg>
+            </button>
+        </form>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'blog:index' %}">Blog&News <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-    <div class="my-2 my-lg-0">
+        <!--Sitorbis Navbar User-->
         {% if request.user.is_authenticated %}
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="{% url 'accounts:profile' %}" class="nav-link">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'accounts:logout' %}" class="nav-link">Logout</a>
-                </li>
-            </ul>
 
-            {% else %}
-            <a href="{% url 'accounts:loginpage' %}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log In</a>
-            <a href="{% url 'accounts:signup' %}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Up</a>
+        <nav class="strbs-navbar-user strbs-flex-row strbs-align-items">
+            <div class="strbs-navbar-user__icon-box">
+                <svg class="strbs-navbar-user__icon">
+                    <image xlink:href="{% static 'images/icons/bell.svg' %}"></image>
+                </svg>
+            </div>
+            <div class="strbs-navbar-user__icon-box">
+                <svg class="strbs-navbar-user__icon">
+                    <image xlink:href="{% static 'images/icons/chat.svg' %}"></image>
+                </svg>
+            </div>
+            <div class="strbs-navbar-user__profile">
+                <img src="{% static 'images/yugcis.png' %}" class="strbs-navbar-user__profile-img" alt="">
+                <div class="strbs-navbar-user__profile-name">Tuğçe Uzşen</div>
+                <span>
+                    <svg style="width: 20px; height: 7px;">
+                        <image xlink:href="{% static 'images/icons/down-arrow.svg' %}"></image>
+                    </svg>
+                </span>
+            </div>
+        </nav>
+        {% else %}
+            <div class="navbar-login">
+                <a href="{% url 'accounts:loginpage' %}" class="strbs-navbar-btn">Log In</a>
+                <a href="{% url 'accounts:signup' %}" class="strbs-navbar-btn-register">Register</a>
+            </div>
         {% endif %}
-
     </div>
-  </div>
   </div>
 </nav>
 
-    <div class="container">
+
         {% if messages %}
             {% for message in messages  %}
-                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                <div class="container">
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                </div>
             {% endfor %}
         {% endif %}
-    </div>
+
     {% block wrapper %}
     
     {% endblock %}
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="{% static 'js/owl.carousel.js' %}"></script>
+<script src="{% static 'js/instafeed.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<script>
+    $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:13,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:3,
+            nav:false
+        },
+        1240:{
+            items:5,
+            nav:true,
+            loop:false
+        }
+    }
+})
+</script>
 </body>
 </html>

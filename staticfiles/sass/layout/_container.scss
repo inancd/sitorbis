@@ -9,3 +9,38 @@
   width: 1300px;
   margin: 0 auto;
 }
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+
+  @media (min-width:768px ) {
+    width: 748px;
+  }
+
+  @media (min-width:1280px ) {
+    width: 1170px;
+  }
+
+  @media (min-width:1440px ) {
+    width: 1300px;
+  }
+
+}
+
+.strbs-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.strbs-justify-between {
+  justify-content: space-between;
+}
+
+.strbs-justify-around {
+  justify-content: space-around;
+}
+
+.strbs-align-items {
+  align-items: center;
+}

@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {% for cat in blog_list %}
-        {{ cat.title }}
+{% extends 'blog/base.html' %}
+
+{% block wrapper %}
+    {% for foo in cat %}
+        {{ foo.title }}
+
+        {% for fox in foo.post_set.all %}
+            <a href="{% url 'blog:detail' fox.slug %}">{{ fox.title }}</a>
+        {% endfor %}
+
     {% endfor %}
 
-</body>
-</html>
+{% endblock %}

@@ -1,17 +1,27 @@
+.strbs-detail{
+  display: flex;
+  flex-direction: column;
+  @media (min-width:1440px) {
+    flex-direction: row;
+  }
+}
 .strbs-detail-sidebar {
-  padding: 0px 0px 0px 20px;
-  width: 25%;
+
+  width: 100%;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
 
+  &__profile{
+    margin-bottom: 50px;
+  }
   &__profile-image{
     width: 240px;
     height: 240px;
     border-radius: 100%;
     border: 1px solid #c4c4c4;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
+    background-size: cover;
     img {
       padding: 5px;
     }
@@ -25,4 +35,42 @@
       font-weight: 600;
     }
   }
+  @media (min-width:1440px) {
+    width: 25%;
+    margin-left: 25px;
+  }
+}
+
+.strbs-instagram {
+  width: 100%;
+  &__heading{
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__before {
+      content: '';
+      height: 1px;
+      width: 100%;
+      background-color: $color-white-500;
+      top:15px;
+      position: absolute;
+      left: 0;
+  }
+
+  &__widget{
+      display: inline-block;
+      width: auto;
+      margin: 0 0 3px;
+      z-index: 90;
+      background-color: #fff;
+      padding: 0 12px;
+      position: relative;
+      font-weight: 400;
+      letter-spacing: .3em;
+      font-size: 14px;
+      text-transform: uppercase;
+  }
+
 }

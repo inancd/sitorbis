@@ -1,8 +1,6 @@
 .strbs-btn {
   display: inline-block;
   text-align: center;
-
-
 }
 
 .strbs-btn-primary {
@@ -14,4 +12,20 @@
   width: 100%;
   padding: 1rem 6rem;
 
+}
+
+.strbs-navbar-btn {
+  color:$color-grey-300;
+  text-decoration: none;
+  padding: .7rem 1rem;
+  border: 1px solid $color-green-500;
+  border-radius: 20px;
+}
+
+.strbs-navbar-btn-register {
+  color:$color-white-200;
+  text-decoration: none;
+  padding: .7rem 1rem;
+  background-color: $color-green-500;
+  border-radius: 20px;
 }

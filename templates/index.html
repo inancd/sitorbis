@@ -10,7 +10,7 @@
                     <a href=""><img class="navbar__logo" src="{% static 'images/Sitorbisyesil.png' %}" alt=""></a>
                     <ul class="navbar__nav">
                         <li class="navbar__item"><a href="" class="navbar__link">Home</a></li>
-                        <li class="navbar__item"><a href="" class="navbar__link">Blog&News</a></li>
+                        <li class="navbar__item"><a href="{% url 'blog:index' %}" class="navbar__link">Blog&News</a></li>
                     </ul>
                 </nav>
                 <!--/Navigation/-->
@@ -162,7 +162,5 @@
                 </div>
             </div>
         </section>
-
-
         </div>
     {% endblock %}

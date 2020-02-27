@@ -2,33 +2,46 @@
 {% load static %}
 {% block wrapper %}
     <section class="section">
-        <div class="strbs-detail-container">
-            <div class="strbs-detail-content">
-                <div class="strbs-detail-content__image">
-                    <img src="{{ post.picture.url }}" alt="">
-                </div>
-                <h3 class="strbs-detail-content__headline">
-                    {{ post.title }}
-                </h3>
-                <div class="strbs-detail-content__category">
-                    <a href="">Beer Tourism</a>
-                </div>
-                <div class="strbs-detail-content__post-text">
-                    <p>{{ post.text|safe }}</p>
-                </div>
-            </div>
-            <div class="strbs-detail-sidebar">
-                <div class="strbs-detail-sidebar__profile">
-                    <div class="strbs-detail-sidebar__profile-image">
-                        <img src="{{ post.author.profile.profile_picture.url }}" alt="">
+        <div class="container">
+            <div class="strbs-detail">
+                <div class="strbs-detail-content">
+                    <div class="strbs-detail-content__image">
+                        <img src="{{ post.picture.url }}" alt="">
                     </div>
-                    <div class="strbs-detail-sidebar__profile-nickname">
-                        <a href="#">{{ post.author.fullname }}</a>
+                    <h3 class="strbs-detail-content__headline">
+                        {{ post.title }}
+                    </h3>
+                    <div class="strbs-detail-content__category">
+                        <a href="{% url 'blog:category' post.category.slug %}">{{ post.category.title }}</a>
+                    </div>
+                    <div class="strbs-detail-content__post-text">
+                        <p>{{ post.text|safe }}</p>
+                    </div>
+                </div>
+                <div class="strbs-detail-sidebar">
+                    <div class="strbs-detail-sidebar__profile">
+                        <div class="strbs-detail-sidebar__profile-image" style="background-image: url({{ post.author.profile.profile_picture.url }});">
+
+                        </div>
+                        <div class="strbs-detail-sidebar__profile-nickname">
+                            <a href="#">{{ post.author.fullname }}</a>
+                        </div>
+                    </div>
+                    <div class="strbs-instagram">
+                        <div class="strbs-instagram__heading">
+                            <span class="strbs-instagram__before"></span>
+                            <h6 class="strbs-instagram__widget">instagram</h6>
+                        </div>
+                        <div class="strbs-instagram-list">
+                            <div id="instafeed-gallery" class="owl-carousel instagram-owl"></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <div class="section-2"></div>
 
 {% endblock %}
 

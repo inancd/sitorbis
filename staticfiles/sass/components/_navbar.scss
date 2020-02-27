@@ -1,0 +1,158 @@
+.navbar {
+  width: 100%;
+  background-color: $color-white-500;
+  height: 60px;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.18);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.18);
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.18);
+}
+
+.strbs-navbar-logo{
+  &__images {
+    width: 34px;
+  }
+}
+
+.strbs-navbar-nav{
+  list-style-type: none;
+
+  &__item {
+    display: none;
+    padding: 20px 10px;
+  }
+
+  &__link {
+    color: $color-grey-300;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  
+  @media (min-width: 1440px) {
+    &__link{
+      font-size: 14px;
+    }
+    &__item {
+      display: block;
+  }
+    
+  }
+}
+
+.strbs-navbar-search {
+  display: none;
+  @media (min-width: 1440px) {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__input {
+      background-color: $color-white-200;
+      border: none;
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      width: 90%;
+      border-radius: 50px;
+      padding: .7rem 2rem;
+      transition: all .2s;
+      margin-right: -3.2rem;
+      &:focus{
+        width: 100%;
+        outline: none;
+      }
+
+      &::-webkit-input-placeholder{
+        font-size: 14px;
+      }
+
+    }
+
+    &__button {
+      border:none;
+      background-color: $color-white-200;
+
+
+      &:focus{
+        outline: none;
+      }
+
+      &:active {
+        transform: translateY(2px);
+      }
+
+    }
+
+    &__icon{
+      width: 26px;
+      height: 26px;
+    }
+
+  }
+}
+
+.strbs-navbar-user {
+    & > * {
+       padding: 0 1.1rem;
+     }
+    &__icon{
+       width: 34px;
+       height: 31px;
+     }
+
+     &__profile{
+       display: flex;
+       align-items: center;
+     }
+
+     &__profile-img {
+       width: 38px;
+     }
+
+     &__profile-name{
+       margin-left: .7rem;
+       margin-right: .7rem;
+       font-size: 10px;
+
+     }
+
+   @media (min-width: 1440px) {
+     display: block;
+     & > * {
+       padding: 0 1.1rem;
+     }
+     &__icon-box {
+
+     }
+
+     &__icon{
+       width: 34px;
+       height: 31px;
+     }
+
+     &__profile{
+       display: flex;
+       align-items: center;
+     }
+
+     &__profile-img {
+       width: 38px;
+     }
+
+     &__profile-name{
+       margin-left: .7rem;
+       margin-right: .7rem;
+       font-size: 14px
+
+     }
+  }
+}
+
+.navbar-login {
+  display: none;
+  @media (min-width: 1440px) {
+    display: block;
+    
+  }
+}
