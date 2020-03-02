@@ -279,11 +279,32 @@ body {
   width: 34px;
 }
 
+.strbs-toggle {
+  background-color: #F7F2EE;
+  border: none;
+  order: 1;
+}
+.strbs-toggle__icon {
+  width: 40px;
+  height: 40px;
+}
+@media (min-width: 1440px) {
+  .strbs-toggle {
+    display: none;
+  }
+}
+
 .strbs-navbar-nav {
   list-style-type: none;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 8%;
+  background-color: #F7F2EE;
+  width: 100%;
+  z-index: 99;
 }
 .strbs-navbar-nav__item {
-  display: none;
   padding: 20px 10px;
 }
 .strbs-navbar-nav__link {
@@ -293,12 +314,25 @@ body {
   font-size: 12px;
 }
 @media (min-width: 1440px) {
+  .strbs-navbar-nav {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+    position: relative;
+    background: none;
+  }
   .strbs-navbar-nav__link {
     font-size: 14px;
   }
   .strbs-navbar-nav__item {
     display: block;
   }
+}
+
+.active {
+  display: block;
 }
 
 .strbs-navbar-search {
@@ -347,7 +381,7 @@ body {
 }
 
 .strbs-navbar-user > * {
-  padding: 0 1.1rem;
+  padding: 0 0.2rem;
 }
 .strbs-navbar-user__icon {
   width: 34px;
@@ -364,6 +398,10 @@ body {
   margin-left: 0.7rem;
   margin-right: 0.7rem;
   font-size: 10px;
+}
+.strbs-navbar-user__profile-name a {
+  text-decoration: none;
+  color: #303030;
 }
 @media (min-width: 1440px) {
   .strbs-navbar-user {
@@ -382,12 +420,51 @@ body {
   }
   .strbs-navbar-user__profile-img {
     width: 38px;
+    height: 38px;
+    border-radius: 100%;
+    background-size: cover;
   }
   .strbs-navbar-user__profile-name {
     margin-left: 0.7rem;
     margin-right: 0.7rem;
     font-size: 14px;
   }
+  .strbs-navbar-user__profile-name a {
+    text-decoration: none;
+    color: #303030;
+  }
+}
+
+.navbar-profile {
+  list-style-type: none;
+}
+.navbar-profile__item a {
+  display: block;
+}
+.navbar-profile__item ul {
+  display: none;
+  position: absolute;
+  transition: 0.5s;
+  transform: translateY(40px);
+  top: 3rem;
+  right: 2rem;
+  min-width: 300px;
+  background-color: #F7F2EE;
+  border-radius: 20px;
+  padding: 20px 20px;
+  list-style-type: none;
+}
+.navbar-profile__item:hover ul {
+  display: block;
+  transform: translateY(0px);
+}
+.navbar-profile__item ul li {
+  padding: 20px;
+}
+
+.nav-dropdown-icon {
+  width: 20px;
+  height: 24px;
 }
 
 .navbar-login {
@@ -634,6 +711,7 @@ body {
   font-weight: 400;
   color: #565050;
   line-height: 1.7em;
+  padding-bottom: 1rem;
 }
 @media (min-width: 1440px) {
   .strbs-detail-content {

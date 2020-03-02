@@ -5,7 +5,7 @@ from .models import Post, PostCategory
 
 def Page(request):
     page_list = Post.objects.all()
-    page_popular = Post.objects.filter(editor_featured=True)
+    page_popular = Post.objects.filter(editor_featured=True).order_by("-dated_posted")
 
     context = {
         'page': page_list,

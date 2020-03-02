@@ -13,11 +13,30 @@
   }
 }
 
+.strbs-toggle {
+  background-color: $color-white-500;
+  border: none;
+  order: 1;
+  &__icon {
+    width: 40px;
+    height: 40px;
+  }
+  @media (min-width: 1440px) {
+    display: none;
+  }
+}
+
 .strbs-navbar-nav{
   list-style-type: none;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 8%;
+  background-color: $color-white-500;
+  width: 100%;
+  z-index: 99;
 
   &__item {
-    display: none;
     padding: 20px 10px;
   }
 
@@ -29,6 +48,13 @@
   }
   
   @media (min-width: 1440px) {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+    position: relative;
+    background: none;
     &__link{
       font-size: 14px;
     }
@@ -37,6 +63,10 @@
   }
     
   }
+}
+
+.active{
+  display: block;
 }
 
 .strbs-navbar-search {
@@ -94,7 +124,7 @@
 
 .strbs-navbar-user {
     & > * {
-       padding: 0 1.1rem;
+       padding: 0 0.2rem;
      }
     &__icon{
        width: 34px;
@@ -114,6 +144,10 @@
        margin-left: .7rem;
        margin-right: .7rem;
        font-size: 10px;
+       a{
+         text-decoration: none;
+         color: $color-grey-300;
+       }
 
      }
 
@@ -138,17 +172,65 @@
 
      &__profile-img {
        width: 38px;
+       height: 38px;
+       border-radius: 100%;
+       background-size: cover;
      }
 
      &__profile-name{
        margin-left: .7rem;
        margin-right: .7rem;
-       font-size: 14px
+       font-size: 14px;
+       a{
+         text-decoration: none;
+         color: $color-grey-300;
+       }
 
      }
   }
 }
 
+.navbar-profile {
+  list-style-type: none;
+
+  &__item a {
+    display: block;
+  }
+  &__item ul{
+    display: none;
+    position: absolute;
+    transition: 0.5s;
+    transform: translateY(40px);
+
+    top: 3rem;
+    right: 2rem;
+    min-width: 300px;
+    background-color: $color-white-500;
+    border-radius: 20px;
+    padding: 20px 20px;
+    list-style-type: none;
+
+  }
+
+
+  &__item:hover ul {
+    display: block;
+    transform: translateY(0px);
+  }
+  &__item ul li  {
+    padding: 20px;
+  }
+
+}
+
+.nav-dropdown-title {
+
+}
+
+.nav-dropdown-icon {
+  width: 20px;
+  height: 24px;
+}
 .navbar-login {
   display: none;
   @media (min-width: 1440px) {

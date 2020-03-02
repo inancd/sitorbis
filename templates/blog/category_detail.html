@@ -1,7 +1,8 @@
 {% extends 'blog/base.html' %}
 
 {% block wrapper %}
-    {% for foo in cat %}
+    <div class="container">
+        {% for foo in cat %}
         {{ foo.title }}
 
         {% for fox in foo.post_set.all %}
@@ -9,5 +10,6 @@
         {% endfor %}
 
     {% endfor %}
+    </div>
 
 {% endblock %}

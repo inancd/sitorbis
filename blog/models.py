@@ -18,9 +18,8 @@ class PostCategory(models.Model):
 
 def pre_save_post_category_receiever(sender, instance, *args, **kwargs):
     if not instance.slug:
-        instance.slug=slugify(instance.title)
+        instance.slug = slugify(instance.title)
 pre_save.connect(pre_save_post_category_receiever, sender=PostCategory)
-
 
 
 class Post(models.Model):
@@ -33,7 +32,6 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     picture = models.ImageField(upload_to='blog/%Y/%m/%d/')
     editor_featured = models.BooleanField()
-
 
     def __str__(self):
         return self.title
