@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db.models.signals import pre_save, post_delete
 from django.utils.text import slugify
 from django.conf import settings
@@ -27,7 +28,7 @@ class Post(models.Model):
     slug = models.SlugField(blank=True, unique=True, max_length=400)
     category = models.ForeignKey(PostCategory, on_delete=models.CASCADE)
     likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='post_likes')
-    text = RichTextField()
+    text = RichTextUploadingField()
     dated_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     picture = models.ImageField(upload_to='blog/%Y/%m/%d/')

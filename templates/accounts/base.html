@@ -5,30 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name=”description” content=”Sitorbis is a socio-digital platform that gather stakeholders of special interest tourism and enables them to interact.”/>
+    <meta name=”description” content=”Sitorbis is a socio-digital platform that gather stakeholders of special interest
+          tourism and enables them to interact.”/>
     <title>Sitorbis | Tourism for non-tourists</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
     <script src="https://kit.fontawesome.com/a873b4d106.js" crossorigin="anonymous"></script>
 </head>
 <body class="login-page">
-    <nav class="strbs-login-navbar">
-        <div class="strbs-login-container">
-            <div class="strbs-login-navbar__wrapper">
-                <div class="strbs-login-navbar__logo">
-                    <img src="{% static 'images/logowhite.png' %}" alt="">
-                </div>
-                <ul class="strbs-login-navbar__menu">
-                    <li class="strbs-login-navbar__item">“Tourism for non-tourists”</li>
-                </ul>
+<nav class="strbs-login-navbar">
+    <div class="strbs-login-container">
+        <div class="strbs-login-navbar__wrapper">
+            <div class="strbs-login-navbar__logo">
+                <img src="{% static 'images/logowhite.png' %}" alt="">
             </div>
+            <ul class="strbs-login-navbar__menu">
+                <li class="strbs-login-navbar__item">“Tourism for non-tourists”</li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    {% block wrapper %}
+{% block wrapper %}
 
-    {% endblock %}
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+{% endblock %}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>

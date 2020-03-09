@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav class="strbs-navbar-user strbs-flex-row strbs-align-items">
+            <div class="strbs-navbar-user__icon-box">
+                <svg class="strbs-navbar-user__icon" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <image xlink:href="{% static 'images/icons/bell.svg' %}"></image>
+                </svg>
+            </div>
+            <div class="strbs-navbar-user__icon-box">
+                <svg class="strbs-navbar-user__icon" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <image xlink:href="{% static 'images/icons/chat.svg' %}"></image>
+                </svg>
+            </div>
+            <div class="strbs-navbar-user__profile" >
+                <div class="strbs-navbar-user__profile-img" style="background-image: url({{ user.profile.profile_picture.url}});"></div>
+                <div class="strbs-navbar-user__profile-name">
+                    <ul class="navbar-profile">
+                        <li class="navbar-profile__item">
+                            <a href="">
+                                {{ user.fullname }}
+                            </a>
+                            <ul>
+
+                                <li>
+                                    <a href="{% url 'accounts:logout' %}">
+                                        <svg class="nav-dropdown-icon" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                            <image xlink:href="{% static 'images/icons/logout.svg' %}"></image>
+                                        </svg>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'accounts:logout' %}">
+
+                                        Log out
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+
+
+                </div>
+                <span>
+                    <svg style="width: 20px; height: 7px;" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                        <image xlink:href="{% static 'images/icons/down-arrow.svg' %}"></image>
+                    </svg>
+                </span>
+            </div>
+        </nav>
+</body>
+</html>
+
+
+
+<nav class="navbar">
+
+  <div class="container">
+    <div class="strbs-flex-row strbs-justify-between strbs-align-items">
+        <!--Sitorbis Logo-->
+        <div class="strbs-navbar-logo">
+            <a href="{% url 'page:homepage' %}"><img class="strbs-navbar-logo__images" src="{% static 'images/logoyesil.png' %}" alt="Sitorbis Logo"></a>
+        </div>
+        <button class="strbs-toggle" id="js-navbar-toggle">
+          <svg class="strbs-toggle__icon">
+            <image xlink:href="{% static 'images/icons/menu-toggle.svg' %}"></image>
+          </svg>
+        </button>
+        <!--Sitorbis Menu-->
+        <ul class="strbs-navbar-nav" id="js-menu">
+            <li class="strbs-navbar-nav__item">
+                <a class="strbs-navbar-nav__link" href="{% url 'blog:index'%}">Home</a>
+            </li>
+            <li class="strbs-navbar-nav__item">
+                <a class="strbs-navbar-nav__link" href="">Category</a>
+            </li>
+            <li class="strbs-navbar-nav__item">
+                <a class="strbs-navbar-nav__link" href="">Video</a>
+            </li>
+            <li class="strbs-navbar-nav__item">
+                <a class="strbs-navbar-nav__link" href="">Tags</a>
+            </li>
+        </ul>
+        <!--Sitorbis Search Form-->
+        <form action="" class="strbs-navbar-search">
+            <input type="text" class="strbs-navbar-search__input" placeholder="Search">
+            <button class="strbs-navbar-search__button">
+                <svg class="strbs-navbar-search__icon" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <image xlink:href="{% static 'images/icons/search.svg' %}"></image>
+                </svg>
+            </button>
+        </form>
+
+        <!--Sitorbis Navbar User-->
+        {% if request.user.is_authenticated %}
+
+        <nav class="strbs-navbar-user strbs-flex-row strbs-align-items">
+            <div class="strbs-navbar-user__icon-box">
+                <svg class="strbs-navbar-user__icon">
+                    <image xlink:href="{% static 'images/icons/bell.svg' %}"></image>
+                </svg>
+            </div>
+            <div class="strbs-navbar-user__icon-box">
+                <svg class="strbs-navbar-user__icon">
+                    <image xlink:href="{% static 'images/icons/chat.svg' %}"></image>
+                </svg>
+            </div>
+            <div class="strbs-navbar-user__profile">
+                <img src="{% static 'images/yugcis.png' %}" class="strbs-navbar-user__profile-img" alt="">
+                <div class="strbs-navbar-user__profile-name">Tuğçe Uzşen</div>
+                <span>
+                    <svg style="width: 20px; height: 7px;">
+                        <image xlink:href="{% static 'images/icons/down-arrow.svg' %}"></image>
+                    </svg>
+                </span>
+            </div>
+        </nav>
+        {% else %}
+            <div class="navbar-login">
+                <a href="{% url 'accounts:loginpage' %}" class="strbs-navbar-btn">Log In</a>
+                <a href="{% url 'accounts:signup' %}" class="strbs-navbar-btn-register">Register</a>
+            </div>
+        {% endif %}
+    </div>
+  </div>
+</nav>

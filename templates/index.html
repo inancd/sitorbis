@@ -1,8 +1,8 @@
 {% extends 'include.html' %}
 {% load static %}
 
-    {% block wrapper %}
-        <div id="wrapper">
+{% block wrapper %}
+    <div id="wrapper">
         <header class="header">
             <div class="strbs-container">
                 <!--Navigation-->
@@ -10,7 +10,8 @@
                     <a href=""><img class="navbar__logo" src="{% static 'images/Sitorbisyesil.png' %}" alt=""></a>
                     <ul class="navbar__nav">
                         <li class="navbar__item"><a href="" class="navbar__link">Home</a></li>
-                        <li class="navbar__item"><a href="{% url 'blog:index' %}" class="navbar__link">Blog&News</a></li>
+
+                        </li>
                     </ul>
                 </nav>
                 <!--/Navigation/-->
@@ -30,7 +31,7 @@
             <div class="header__slider"></div>
         </header>
 
-         <section class="strbs-magazine">
+        <section class="strbs-magazine">
             <div class="strbs-container">
                 <div class="iconstrbs1"></div>
                 <div class="iconstrbs2"></div>
@@ -41,11 +42,13 @@
                     </div>
                     <div class="strbs-emagazine__title">
                         <h2>''E-Magazine of Sitorbis''</h2>
-                        <h3>Beer Tourism, <span>1st Issue</span></h3>
+                        <h3>Tourism, <span>1st Issue</span></h3>
 
                         <p>Sitorbis is a start-up project and our team continues to work completely voluntarily.
-                            We need your support in order to develop our project better and to generate a small income for our teammates.
-                            You can read our e-magazines that we will publish every 3 months by funding our project.<br/>
+                            We need your support in order to develop our project better and to generate a small income
+                            for our teammates.
+                            You can read our e-magazines that we will publish every 3 months by funding our
+                            project.<br/>
                         </p>
                         <div class="strbs-emagazine__help">
                             <a href="https://kreosus.com/sitorbis"><img src="{% static 'images/kre.png' %}" alt=""></a>
@@ -54,6 +57,8 @@
                 </div>
             </div>
         </section>
+
+
         <section class="strbs-category">
             <div class="strbs-container-full">
                 <div class="strbs-owl">
@@ -67,7 +72,6 @@
                                     <h3 class="item__strbs-carousel-title">{{ foo.title }}</h3>
                                     <p class="item__strbs-carousel-content">{{ foo.body }}</p>
                                     <div class="item__strbs-carousel-button">
-                                        <button class="btn btn-transperant">SEE DETAIL</button>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +86,8 @@
             </div>
             <div class="strbs-category__title2">
 
-                <h1 style="transform: rotate(-45deg);"><img src="{% static 'images/xd/line.png' %}" alt="">SIT Categories</h1>
+                <h1 style="transform: rotate(-45deg);"><img src="{% static 'images/xd/line.png' %}" alt="">SIT
+                    Categories</h1>
             </div>
         </section>
 
@@ -91,7 +96,7 @@
                 <div class="strbs-login ">
                     <div class="strbs-login__tag animated infinite pulse delay-2s">
                         <div class="strbs-login__tagbg">
-                            <h1 class="strbs-login__tagbg-title">CREATE<br />
+                            <h1 class="strbs-login__tagbg-title">CREATE<br/>
                                 YOUR PROFILE</h1>
                         </div>
                     </div>
@@ -109,12 +114,91 @@
             </div>
         </section>
 
+        <section class="mrgn-top150">
+            <div class="strbs-container">
+                <div class="mobile-app">
+                    <div class="mobile-app__content">
+                        <div class="mobile-app__content-box">
+                            <div class="mobile-app__content-icon">
+                                <img src="{% static 'images/icons/rocket.png' %}" alt="">
+                            </div>
+                            <div class="mobile-app__content-featured">
+                                <h3>Start Your Digital Route </h3>
+                                <p>The modul gives an empty map of the World for Sitorbis’s each member. In this way,
+                                    The Route Modul is going to create a map of the special interest tourism
+                                    universe.</p>
+                            </div>
+                        </div>
+                        <div class="mobile-app__content-box">
+                            <div class="mobile-app__content-icon">
+                                <img src="{% static 'images/icons/pin.png' %}" alt="">
+                            </div>
+                            <div class="mobile-app__content-featured">
+                                <h3>Pin Your Locations</h3>
+                                <p>They can also pin their locations step by step to clearly explain their experiences
+                                    to the followers.</p>
+                            </div>
+                        </div>
+                        <div class="mobile-app__content-box">
+                            <div class="mobile-app__content-icon">
+                                <img src="{% static 'images/icons/pen.png' %}" alt="">
+                            </div>
+                            <div class="mobile-app__content-featured">
+                                <h3>Add Your Experiences</h3>
+                                <p>The members will be able to start a new route of a particular type of special
+                                    interest tourism at any time and these routes will only include their personal
+                                    experiences and adventures.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-app__image">
+                        <img src="{% static 'images/sitorbismobile.png' %}" alt="">
+                    </div>
+                    <div class="mobile-app__content">
+                        <div class="mobile-app__content-box">
+                            <div class="mobile-app__content-icon">
+                                <img src="{% static 'images/icons/share.png' %}" alt="">
+                            </div>
+                            <div class="mobile-app__content-featured">
+                                <h3>Share Contents & Get Comments</h3>
+                                <p>The member also can share descriptions and photos about their locations and their
+                                    followers can make comments to what they share.</p>
+                            </div>
+                        </div>
+                        <div class="mobile-app__content-box">
+                            <div class="mobile-app__content-icon">
+                                <img src="{% static 'images/icons/teamwork.png' %}" alt="">
+                            </div>
+                            <div class="mobile-app__content-featured">
+                                <h3>Instant Conversation System </h3>
+                                <p>During creating the route, they will be online. In this way their followers can
+                                    follow them step by step and start an instant conversation to learn more about their
+                                    common interests. </p>
+                            </div>
+                        </div>
+                        <div class="mobile-app__content-box">
+                            <div class="mobile-app__content-icon">
+                                <img src="{% static 'images/icons/pause.png' %}" alt="">
+                            </div>
+                            <div class="mobile-app__content-featured">
+                                <h3>Pause & Create Later</h3>
+                                <p>The members can give a break to the route and keep going to create later. They can
+                                    also reach their routes whenever they want and improve them with adding new
+                                    information.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <section class="message mrgn-top150">
             <div class="strbs-container">
                 <div class="strbs-message ">
                     <img class="strbs-message__image" src="{% static 'images/chat.png' %}" alt="">
                     <div class="strbs-message__content">
-                        <h3 class="strbs-message__title">Be Match, Get Connect and<br /> Travel Together</h3>
+                        <h3 class="strbs-message__title">Be Match, Get Connect and<br/> Travel Together</h3>
                         <p class="strbs-message__context">Sitorbis will enable you to match other people with similar
                             travel
                             habits, chat, and make new
@@ -149,18 +233,19 @@
                             </div>
                             <div class="strbs-contact__address">
                                 <i class="fas fa-map-marked-alt"></i><a href="">Yaşar Üniversitesi Selçuk Yaşar Kampüsü,
-                                    Ağaçlı Yol, <br />
-                                    No:37-39 Bornova / İZMİR</a>
+                                Ağaçlı Yol, <br/>
+                                No:37-39 Bornova / İZMİR</a>
                             </div>
                         </div>
                         <div class="strbscontact__maps mrgn-top50">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24995.396358099937!2d27.202272!3d38.454759!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xccea44297ef6299!2zWUHFnkFSIMOcTsSwVkVSU8SwVEVTxLA!5e0!3m2!1str!2str!4v1579002701494!5m2!1str!2str"
-                                width="100%" height="285" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24995.396358099937!2d27.202272!3d38.454759!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xccea44297ef6299!2zWUHFnkFSIMOcTsSwVkVSU8SwVEVTxLA!5e0!3m2!1str!2str!4v1579002701494!5m2!1str!2str"
+                                    width="100%" height="285" frameborder="0" style="border:0;"
+                                    allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        </div>
-    {% endblock %}
+    </div>
+{% endblock %}

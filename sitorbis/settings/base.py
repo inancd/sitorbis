@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ckeditor',
+    'ckeditor_uploader',
     'crispy_forms',
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
