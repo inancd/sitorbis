@@ -23,27 +23,45 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white-500">
     <div class="container">
         <a class="navbar-brand" href="#"><img src="{% static 'images/logoyesil.png' %}" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <!--Sitorbis User Profile -->
+        <div class="strbs-author-control order-lg-3">
+            <div class="strbs-author-control__author-thumb">
+                <img src="{{ user.profile.profile_picture.url }}" alt="">
+            </div>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ user.fullname }}
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="navbar-toggler order-lg-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'blog:index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         Category
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        {% for foo in blogs %}
+                            <a href="" class="dropdown-item"> {{ foo.title }}</a>
+                        {% endfor %}
+
                     </div>
                 </li>
                 <li class="nav-item">
@@ -63,6 +81,7 @@
                 </button>
             </form>
         </div>
+
     </div>
 </nav>
 {% block wrapper %}

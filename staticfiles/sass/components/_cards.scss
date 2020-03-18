@@ -48,7 +48,7 @@
     padding: 1rem 0;
   }
 
-  &__author {
+  &__author-link {
     color: $color-grey-300;
     font-size: .8em;
 
@@ -90,9 +90,9 @@
     }
 
     &__author-date {
-
+      display: flex;
     }
-    &__author {
+    &__author-link {
       font-size: .6em;
     }
 
@@ -105,6 +105,11 @@
     }
 
   }
+}
+
+.post-image{
+  width: 100% !important;
+  height: auto !important;
 }
 
 .strbs-owl-cards {

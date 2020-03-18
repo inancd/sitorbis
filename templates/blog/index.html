@@ -48,7 +48,10 @@
                             </div>
 
                             <div class="strbs-article__author-date">
-                                <a class="strbs-article__author" href="#">{{ foo.author.fullname }}</a>
+                                <div class="strbs-article__author">
+                                    <a class="strbs-article__author-link" href="#">{{ foo.author.fullname }}</a>
+                                </div>
+
                                 <a class="strbs-article__readmore" href="{% url 'blog:detail' foo.slug %}">Read More</a>
                                 <a href="" class="strbs-article__date">{{ foo.dated_posted|date:'F d, Y' }}</a>
                             </div>
