@@ -1,20 +1,82 @@
 {% extends 'accounts/base.html' %}
-
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block wrapper %}
-    <div class="strbs-login-container">
-        <div class="strbs-login-wrapper">
-            <div class="strbs-login">
-                <h5>Login to Your Account</h5>
-                <div class="strbs-login__form">
-                    <form action="" method="post">
-                    {% csrf_token %}
-                        {{ registration_form|crispy }}
-                     <button type="submit" class="strbs-btn strbs-btn-primary">Sign Up</button>
-                </form>
+    <div class="container">
+        <div class="row display-flex strbs-accounts-row no-gutters">
+            <div class="col col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="strbs-accounts-wrapper justify-content-end">
+                    <div class="strbs-accounts-menu">
+                        <div class="strbs-accounts-menu__register">
+                            <a href="{% url 'accounts:loginpage' %}">
+                                <svg class="strbs-accounts-menu__icon">
+                                    <image xlink:href="{% static 'images/icons/logins.svg' %}"></image>
+                                </svg>
+                            </a>
+
+                        </div>
+                        <div class="strbs-accounts-menu__login">
+                            <a href="{% url 'accounts:signup' %}">
+                                <svg class="strbs-accounts-menu__icon">
+                                    <image xlink:href="{% static 'images/icons/login-1.svg' %}"></image>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="strbs-accounts-form">
+                        <div class="strbs-accounts-form__title">Register to Sitorbis</div>
+                        <form method="post" class="strbs-accounts-form__content">
+                            <div class="row">
+                                <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    {% csrf_token %}
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12 mb-0">
+                                            {{ registration_form.email|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col-md-12 mb-0">
+                                            {{ registration_form.username|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col-md-12 mb-0">
+                                            {{ registration_form.fullname|as_crispy_field }}
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            {{ registration_form.password1|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            {{ registration_form.password2|as_crispy_field }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="strbs-accounts-form__remember">
+                                <div class="strbs-accounts-form__checkbox">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                                            <label class="form-check-label" for="gridCheck">
+                                                I accept the Terms and Conditions of the website
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <button type="submit" class="strbs-btn strbs-btn-primary">Sign Up</button>
+                            <p class="strbs-accounts-form__or-login">
+                                Have an account? <a href="{% url 'accounts:loginpage' %}">Log in</a>
+                            </p>
+                        </form>
+                    </div>
                 </div>
             </div>
+            <div class="col col-xl-4 strbs-accounts-slider">
+                <img src="{% static 'images/IMG-0877.JPG' %}" alt="">
+            </div>
+
         </div>
     </div>
 {% endblock %}

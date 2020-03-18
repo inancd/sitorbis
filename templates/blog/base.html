@@ -22,36 +22,35 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-white-500">
     <div class="container">
-        <!--Sitorbis Logo-->
-        <div class="strbs-navbar-logo">
-            <a href="{% url 'page:homepage' %}"><img class="strbs-navbar-logo__images"
-                                                     src="{% static 'images/logoyesil.png' %}" alt="Sitorbis Logo"></a>
-        </div>
+        <a class="navbar-brand" href="#"><img src="{% static 'images/logoyesil.png' %}" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse strbs-justify-between" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item ">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
                     <a class="nav-link" href="{% url 'blog:index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
                         Category
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Adventure Tourism</a>
-                        <a class="dropdown-item" href="#">Culture Tourism </a>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tags</a>
+                    <a class="nav-link disabled" href="#">Tags</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Video</a>
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Video</a>
                 </li>
             </ul>
             <!--Sitorbis Search Form-->
@@ -63,63 +62,9 @@
                     </svg>
                 </button>
             </form>
-            <!--Sitorbis Navbar User-->
-            {% if request.user.is_authenticated %}
-
-                <nav class="strbs-navbar-user strbs-flex-row strbs-align-items">
-                    <div class="strbs-navbar-user__icon-box">
-                        <svg class="strbs-navbar-user__icon">
-                            <image xlink:href="{% static 'images/icons/bell.svg' %}"></image>
-                        </svg>
-                    </div>
-                    <div class="strbs-navbar-user__icon-box">
-                        <svg class="strbs-navbar-user__icon">
-                            <image xlink:href="{% static 'images/icons/chat.svg' %}"></image>
-                        </svg>
-                    </div>
-                    <div class="strbs-navbar-user__profile-img"
-                         style="background-image: url({{ user.profile.profile_picture.url }});"></div>
-                    <div class="dropdown">
-                        <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ user.fullname }}
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-menu__title">Your Account</div>
-                            <a class="dropdown-item" href="#"><i class="dropdown-item__icon far fa-user"></i> My Profile</a>
-                            <a class="dropdown-item" href="#"><i class="dropdown-item__icon fas fa-cog"></i> Profile
-                                Setting</a>
-                            <div class="dropdown-menu__title">Security Settings</div>
-                            <a class="dropdown-item" href="#"><i class="dropdown-item__icon fas fa-lock"></i>Privacy
-                                Settings</a>
-                            <a class="dropdown-item" href="#"><i class="dropdown-item__icon far fa-question-circle"></i>
-                                Help Center</a>
-                            <div class="dropdown-menu__title"></div>
-                            <a class="dropdown-item" href="{% url 'accounts:logout' %}"><i
-                                    class="dropdown-item__icon far fa-question-circle"></i> Log Out</a>
-                        </div>
-                    </div>
-                </nav>
-            {% else %}
-                <div class="navbar-login">
-                    <a href="{% url 'accounts:loginpage' %}" class="strbs-navbar-btn">Log In</a>
-                    <a href="{% url 'accounts:signup' %}" class="strbs-navbar-btn-register">Register</a>
-                </div>
-            {% endif %}
         </div>
     </div>
 </nav>
-
-
-{% if messages %}
-    {% for message in messages %}
-        <div class="container">
-            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-        </div>
-    {% endfor %}
-{% endif %}
-
 {% block wrapper %}
 
 {% endblock %}
@@ -135,26 +80,6 @@
 <script src="{% static 'js/owl.carousel.js' %}"></script>
 <script src="{% static 'js/instafeed.min.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
-
-
-<script>
-    /* When the user clicks on the button,
-    toggle between hiding and showing the dropdown content */
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (e) {
-        if (!e.target.matches('.dropbtn')) {
-            var myDropdown = document.getElementById("myDropdown");
-            if (myDropdown.classList.contains('show')) {
-                myDropdown.classList.remove('show');
-            }
-        }
-    }
-</script>
-
 
 <script>
     $('.owl-carousel').owlCarousel({

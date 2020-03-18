@@ -1,15 +1,124 @@
-.strbs-owl-cards{
+////Sitorbis Article /////
+
+.strbs-article {
+  margin-bottom: 100px;
+  overflow: hidden;
+
+  &__title {
+    font-size: 1em;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  &__category {
+    text-align: center;
+    padding: 0 0 1rem 0;
+
+    a {
+      color: $color-grey-300;
+      font-size: .8em;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: $color-grey-300;
+    }
+  }
+
+  &__post-content {
+    text-align: center;
+    padding: 0 0 1rem 0;
+
+    a {
+      color: $color-grey-300;
+      font-family: $font-family-lora;
+      text-decoration: none;
+      font-size: 1em;
+      line-height: 1.7;
+    }
+  }
+
+  &__author-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border-top: 1px solid $color-white-500;
+    border-bottom: 1px solid $color-white-500;
+    padding: 1rem 0;
+  }
+
+  &__author {
+    color: $color-grey-300;
+    font-size: .8em;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__readmore {
+    font-size: .8em;
+    color: $color-grey-300;
+    font-weight: 600;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  &__date {
+    color: $color-grey-300;
+    font-size: .8em;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.5em;
+
+    &__category {
+      a {
+        font-size: .6em;
+      }
+    }
+
+    &__post-content {
+      a {
+        font-size: .8em;
+      }
+    }
+
+    &__author-date {
+
+    }
+    &__author {
+      font-size: .6em;
+    }
+
+    &__readmore {
+      font-size: .8em;
+      color: $color-grey-300;
+    }
+    &__date {
+      font-size: .6em;
+    }
+
+  }
+}
+
+.strbs-owl-cards {
   display: flex;
   flex-direction: column;
 
   text-align: center;
   border: 1px solid $color-white-500;
 
-  &__image{
+  &__image {
     width: 100%;
     height: 370px;
     background-size: cover;
-    background-position:top 10% right 40%;
+    background-position: top 10% right 40%;
   }
 
   &__category {
@@ -21,27 +130,30 @@
     text-transform: uppercase;
   }
 
-  &__title{
+  &__title {
     font-size: 14px;
     font-weight: 300;
     padding: 0 1.5rem;
-    a{
+
+    a {
       color: $color-grey-300;
       text-decoration: none;
     }
   }
 
-  &__user-detail{
+  &__user-detail {
     display: flex;
     justify-content: space-around;
     margin-bottom: 1rem;
   }
-  &__user-name{
+
+  &__user-name {
     font-size: 10px;
     text-decoration: none;
     color: $color-grey-300;
   }
-  &__last-date{
+
+  &__last-date {
     font-size: 10px;
     text-decoration: none;
     color: $color-grey-300;
@@ -52,15 +164,16 @@
   position: absolute;
   width: 47px;
   height: 34px;
-  top:200px;
+  top: 200px;
   background-color: $color-white-200 !important;
 
 }
+
 .owl-next {
   position: absolute;
   width: 47px;
   height: 34px;
-  top:200px;
+  top: 200px;
   background-color: $color-white-200 !important;
   right: 0;
 }
@@ -78,22 +191,14 @@
   flex-direction: column;
   @media (min-width: 1440px) {
     flex-direction: row;
-    
-  }
-}
-
-.strbs-article {
-  width: 100%;
-
-  @media (min-width: 1440px) {
-    width: 75%;
-    margin-right: 15px;
 
   }
 }
 
-.strbs-card-article{
+
+.strbs-card-article {
   margin-bottom: 50px;
+
   &__image {
     width: 100%;
     background-size: cover;
@@ -109,15 +214,18 @@
     font-weight: 300;
 
   }
+
   &__description {
     text-align: center;
     font-family: $font-family-lora;
-    a{
+
+    a {
       color: $color-grey-300;
       text-decoration: none;
       font-size: 16px;
     }
   }
+
   &__detail {
     display: flex;
     flex-direction: row;

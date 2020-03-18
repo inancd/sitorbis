@@ -7,7 +7,8 @@ from accounts.models import Account
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=60, help_text='Required. Add a valid email address')
-    password1 = forms.CharField(widget=forms.PasswordInput, help_text='', label='Password')
+    password1 = forms.CharField(widget=forms.PasswordInput(), help_text='', label='Password')
+    password2 = forms.CharField(widget=forms.PasswordInput(), help_text='')
     class Meta:
         model = Account
         fields = ('email', 'username', 'fullname', 'password1', 'password2')

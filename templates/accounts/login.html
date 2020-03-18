@@ -2,29 +2,74 @@
 {% load static %}
 
 {% block wrapper %}
-<div class="strbs-login-container">
-    <div class="strbs-login-wrapper">
-        <div class="strbs-login">
-            <h5>Login to Your Account</h5>
-            <div class="strbs-login__form">
-                <form action="" method="post">
-                {% csrf_token %}
-                    <div class="strbs-login__form-group">
-                        <input type="email" name="email" class="strbs-login__form-control" placeholder="Email">
-                    </div>
-                    <div class="strbs-login__form-group">
-                        <input type="password" name="password" class="strbs-login__form-control" placeholder="Password">
-                    </div>
+    <div class="container">
+        <div class="row display-flex strbs-accounts-row no-gutters">
+            <div class="col col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12 justify-content-end">
+                <div class="strbs-accounts-wrapper justify-content-end">
+                    <div class="strbs-accounts-menu">
+                        <div class="strbs-accounts-menu__register">
+                            <a href="{% url 'accounts:loginpage' %}">
+                                <svg class="strbs-accounts-menu__icon">
+                                    <image xlink:href="{% static 'images/icons/logins.svg' %}"></image>
+                                </svg>
+                            </a>
 
-                 <button type="submit" class="strbs-btn strbs-btn-primary">Log In</button>
-            </form>
+                        </div>
+                        <div class="strbs-accounts-menu__login">
+                            <a href="{% url 'accounts:signup' %}">
+                                <svg class="strbs-accounts-menu__icon">
+                                    <image xlink:href="{% static 'images/icons/login-1.svg' %}"></image>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="strbs-accounts-form">
+                        <div class="strbs-accounts-form__title">Login to your Account</div>
+                        <form method="post" class="strbs-accounts-form__content">
+                            <div class="row">
+                                <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+
+                                        <input type="email" name="email" class="form-control" placeholder="Email"
+                                               id="inputEmail4">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" class="form-control"
+                                               placeholder="Password"
+                                               id="inputPassword4">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="strbs-accounts-form__remember">
+                                <div class="strbs-accounts-form__checkbox">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                                            <label class="form-check-label" for="gridCheck">
+                                                Remember Me
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="strbs-accounts-form__forgot">Forgot my Password</a>
+                            </div>
+                            <button type="submit" class="strbs-btn strbs-btn-primary">Login</button>
+
+                            <div class="strbs-accounts-form__or"></div>
+                            <p class="strbs-accounts-form__or-register">
+                                Don’t you have an account? <a href="{% url 'accounts:signup' %}">Register Now!</a> it’s
+                                really simple and you can start enjoing all the benefits!
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-xl-4 strbs-accounts-slider">
+                <img src="{% static 'images/IMG-0877.JPG' %}" alt="">
             </div>
 
-            <div class="strbs-login__regnote">
-                <p>Don’t you have an account? <a href="{% url 'accounts:signup' %}" style="color: #3A8F3D;">Register Now!</a> it’s really simple and you can start enjoing all the benefits!</p>
-            </div>
         </div>
-
     </div>
-</div>
+
 {% endblock %}
