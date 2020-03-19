@@ -44,7 +44,7 @@
                                 <a href="">{{ foo.category }}</a>
                             </div>
                             <div class="strbs-article__post-content">
-                                <a href="{% url 'blog:detail' foo.slug %}">{{ foo.text|safe|truncatechars:400 }}</a>
+                                <a href="{% url 'blog:detail' foo.slug %}">{{ foo.text|truncatechars_html:400|safe }}</a>
                             </div>
 
                             <div class="strbs-article__author-date">

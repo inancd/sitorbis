@@ -18,6 +18,19 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
     <script src="https://kit.fontawesome.com/a873b4d106.js" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154388359-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154388359-1');
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-white-500">
@@ -25,23 +38,29 @@
         <a class="navbar-brand" href="#"><img src="{% static 'images/logoyesil.png' %}" alt=""></a>
         <!--Sitorbis User Profile -->
         <div class="strbs-author-control order-lg-3">
-            <div class="strbs-author-control__author-thumb">
-                <img src="{{ user.profile.profile_picture.url }}" alt="">
-            </div>
-            <div class="dropdown">
-                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ user.fullname }}
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
+            {% if user.is_authenticated %}
+                <div class="strbs-author-control__author-thumb">
+                    <img src="{{ user.profile.profile_picture.url }}" alt="">
                 </div>
-            </div>
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ user.fullname }}
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
+                    </div>
+                </div>
+            {% else %}
+                <a class="btn btn-light" href="{% url 'accounts:loginpage' %}">Log In</a>
+                <a class="btn btn-success" href="{% url 'accounts:signup' %}">Register</a>
+            {% endif %}
         </div>
 
-        <button class="navbar-toggler order-lg-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <button class="navbar-toggler order-lg-2" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
