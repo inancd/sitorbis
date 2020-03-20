@@ -1,10 +1,63 @@
-.strbs-detail{
+/// Sitorbis Sidebar ///
+.strbs-popular-post {
   display: flex;
   flex-direction: column;
-  @media (min-width:1440px) {
+  align-self: center;
+
+
+  &__content {
+    display: flex;
+
+    margin-bottom: 1.2rem;
+  }
+
+  &__thumb {
+
+  }
+
+  &__popular-thumb {
+    width: 42px;
+    height: 42px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-right: 12px;
+  }
+
+  &__title {
+    padding: 0 .6em;
+    align-self: center;
+    h3 {
+      font-size: 12px;
+      margin: 0;
+
+      a {
+        color: $color-grey-300;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    margin-bottom: 50px;
+    padding: 0rem 0.8rem;
+    &__popular-thumb {
+      width: 42px;
+      height: 42px;
+    }
+    
+  }
+}
+
+
+.strbs-detail {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 1440px) {
     flex-direction: row;
   }
 }
+
 .strbs-detail-sidebar {
 
   width: 100%;
@@ -12,22 +65,26 @@
   display: flex;
   flex-direction: column;
 
-  &__profile{
+  &__profile {
     margin-bottom: 50px;
   }
-  &__profile-image{
+
+  &__profile-image {
     width: 240px;
     height: 240px;
     border-radius: 100%;
     border: 1px solid #c4c4c4;
     margin: 0 auto 20px auto;
     background-size: cover;
+
     img {
       padding: 5px;
     }
   }
+
   &__profile-nickname {
     text-align: center;
+
     a {
       text-decoration: none;
       text-transform: uppercase;
@@ -35,7 +92,8 @@
       font-weight: 600;
     }
   }
-  @media (min-width:1440px) {
+
+  @media (min-width: 1440px) {
     width: 25%;
     margin-left: 25px;
   }
@@ -43,34 +101,35 @@
 
 .strbs-instagram {
   width: 100%;
-  &__heading{
+
+  &__heading {
     position: relative;
     text-align: center;
     margin-bottom: 20px;
   }
 
   &__before {
-      content: '';
-      height: 1px;
-      width: 100%;
-      background-color: $color-white-500;
-      top:15px;
-      position: absolute;
-      left: 0;
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: $color-white-500;
+    top: 15px;
+    position: absolute;
+    left: 0;
   }
 
-  &__widget{
-      display: inline-block;
-      width: auto;
-      margin: 0 0 3px;
-      z-index: 90;
-      background-color: #fff;
-      padding: 0 12px;
-      position: relative;
-      font-weight: 400;
-      letter-spacing: .3em;
-      font-size: 14px;
-      text-transform: uppercase;
+  &__widget {
+    display: inline-block;
+    width: auto;
+    margin: 0 0 3px;
+    z-index: 90;
+    background-color: #fff;
+    padding: 0 12px;
+    position: relative;
+    font-weight: 400;
+    letter-spacing: .3em;
+    font-size: 14px;
+    text-transform: uppercase;
   }
 
 }

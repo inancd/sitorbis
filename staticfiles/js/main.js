@@ -10,7 +10,7 @@
           useHttp: "true",
           template: '<ul class="strbs-instagram-feed instagram-icon"><li><a href="{{link}}" target="_blank"><img src="{{image}}" class="img-responsive"><span class="strbs-instagram-icon"><span class="fab fa-instagram"></span></span></a></li></ul>',
           target: "instafeed-gallery",
-          limit: 5,
+          limit: 4,
 
         });
         galleryFeed.run();

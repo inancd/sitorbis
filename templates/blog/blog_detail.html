@@ -8,6 +8,17 @@
                     <div class="strbs-detail-content__image">
                         <img src="{{ post.picture.url }}" alt="">
                     </div>
+                    <form action="{% url 'blog:like_post' %}" method="post">
+                        {% csrf_token %}
+                        {% if is_liked %}
+                            <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-success">Dislike {{ post.likes.count }}
+                            </button>
+                        {% else %}
+                            <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-success">Likes {{ post.likes.count }}
+                            </button>
+                        {% endif %}
+
+                    </form>
                     <h3 class="strbs-detail-content__headline">
                         {{ post.title }}
                     </h3>
@@ -20,7 +31,8 @@
                 </div>
                 <div class="strbs-detail-sidebar">
                     <div class="strbs-detail-sidebar__profile">
-                        <div class="strbs-detail-sidebar__profile-image" style="background-image: url({{ post.author.profile.profile_picture.url }});">
+                        <div class="strbs-detail-sidebar__profile-image"
+                             style="background-image: url({{ post.author.profile.profile_picture.url }});">
 
                         </div>
                         <div class="strbs-detail-sidebar__profile-nickname">
@@ -33,9 +45,8 @@
                             <h6 class="strbs-instagram__widget">instagram</h6>
                         </div>
                         <div class="strbs-instagram-list">
-                            <div id="instafeed-gallery" ></div>
+                            <div id="instafeed-gallery"></div>
                         </div>
-
                     </div>
                 </div>
             </div>

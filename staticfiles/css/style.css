@@ -700,6 +700,47 @@ aside {
   }
 }
 
+.strbs-popular-post {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.strbs-popular-post__content {
+  display: flex;
+  margin-bottom: 1.2rem;
+}
+.strbs-popular-post__popular-thumb {
+  width: 42px;
+  height: 42px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-right: 12px;
+}
+.strbs-popular-post__title {
+  padding: 0 0.6em;
+  align-self: center;
+}
+.strbs-popular-post__title h3 {
+  font-size: 12px;
+  margin: 0;
+}
+.strbs-popular-post__title h3 a {
+  color: #303030;
+}
+.strbs-popular-post__title h3 a:hover {
+  text-decoration: none;
+}
+@media (min-width: 1024px) {
+  .strbs-popular-post {
+    margin-bottom: 50px;
+    padding: 0rem 0.8rem;
+  }
+  .strbs-popular-post__popular-thumb {
+    width: 42px;
+    height: 42px;
+  }
+}
+
 .strbs-detail {
   display: flex;
   flex-direction: column;
