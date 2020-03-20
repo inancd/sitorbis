@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import RedirectView
+from django.db.models import Count
 from .models import Post, PostCategory
 
 def Page(request):
     page_list = Post.objects.all()
     page_popular = Post.objects.filter(editor_featured=True).order_by("-dated_posted")
-    popular_post = Post.objects.order_by('likes')[:5]
+    popular_post = Post.objects.annotate(likes_count=Count('likes')).order_by('-likes_count')
+
 
     context = {
         'page': page_list,
