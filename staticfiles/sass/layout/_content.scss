@@ -15,6 +15,7 @@
     font-size: 1.3em;
     text-align: center;
     font-weight: 400;
+
   }
 
   &__category {
@@ -65,7 +66,7 @@
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 300;
-
+    margin-bottom: 50px;
   }
   &__wrapper {
     width: 100%;
@@ -84,6 +85,7 @@
   &__author {
     text-transform: uppercase;
     font-weight: 600;
+    letter-spacing: .1em;
   }
 
   &__date {
@@ -94,9 +96,10 @@
   }
   &__text {
     margin-top: 1rem;
+    letter-spacing: .1em;
   }
   &__reply {
-
+    margin-top: 80px;
   }
 
   &__children {
@@ -115,11 +118,33 @@
   &__children-author {
     margin-right: 1rem;
   }
+  &__reply-button {
+    color: $color-grey-300;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: .2em;
+    margin-bottom: 20px;
+
+    &:hover {
+      text-decoration: none;
+      color: $color-grey-200;
+    }
+
+  }
   
   @media (min-width: 1024px) {
     &__children-wrapper{
       margin-left: 150px;
     }
     
+  }
+}
+
+.collapse {
+  margin-top:20px;
+  textarea::placeholder{
+    font-size: 12px;
+    font-style: italic;
   }
 }

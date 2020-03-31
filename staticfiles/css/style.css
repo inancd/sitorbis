@@ -707,6 +707,7 @@ aside {
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 300;
+  margin-bottom: 50px;
 }
 .strbs-post-comment__wrapper {
   width: 100%;
@@ -721,6 +722,7 @@ aside {
 .strbs-post-comment__author {
   text-transform: uppercase;
   font-weight: 600;
+  letter-spacing: 0.1em;
 }
 .strbs-post-comment__date {
   margin-left: 1rem;
@@ -730,6 +732,10 @@ aside {
 }
 .strbs-post-comment__text {
   margin-top: 1rem;
+  letter-spacing: 0.1em;
+}
+.strbs-post-comment__reply {
+  margin-top: 80px;
 }
 .strbs-post-comment__children {
   list-style: none;
@@ -747,10 +753,30 @@ aside {
 .strbs-post-comment__children-author {
   margin-right: 1rem;
 }
+.strbs-post-comment__reply-button {
+  color: #303030;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  margin-bottom: 20px;
+}
+.strbs-post-comment__reply-button:hover {
+  text-decoration: none;
+  color: #565050;
+}
 @media (min-width: 1024px) {
   .strbs-post-comment__children-wrapper {
     margin-left: 150px;
   }
+}
+
+.collapse {
+  margin-top: 20px;
+}
+.collapse textarea::placeholder {
+  font-size: 12px;
+  font-style: italic;
 }
 
 .strbs-popular-post {

@@ -45,7 +45,6 @@ def Detail_view(request, slug):
                 comment_qs = Comment.objects.get(id=reply_id)
             comment = Comment.objects.create(post=blog_post, user=request.user, content=content, reply=comment_qs)
             comment.save()
-            HttpResponseRedirect(blog_post.slug)
     else:
         comment_form = CommentForm()
     context = {
@@ -55,6 +54,11 @@ def Detail_view(request, slug):
         'comment_form': comment_form,
 
     }
+
+    if request.is_ajax():
+        html = render_to_string('blog/comments.html', context, request=request)
+        return JsonResponse({'form': html})
+
     return render(request, 'blog/blog_detail.html', context)
 
 

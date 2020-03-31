@@ -1,4 +1,48 @@
 // =============================================
+// SITORBIS COMMENT AJAX
+// =============================================
+
+$(document).ready(function (event) {
+    $(document).on('submit', '.comment-form', function (event) {
+        event.preventDefault();
+        console.log($(this).serialize());
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (response) {
+                $('.strbs-post-comment').html(response['form']);
+                $('textarea').val('');
+            },
+            error: function (rs, e) {
+                console.log(rs.responseText);
+            },
+        });
+    });
+
+    $(document).on('submit', '.reply-form', function (event) {
+        event.preventDefault();
+        console.log($(this).serialize());
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function (response) {
+                $('.strbs-post-comment').html(response['form']);
+                $('textarea').val('');
+            },
+            error: function (rs, e) {
+                console.log(rs.responseText);
+            },
+        });
+    });
+
+});
+
+
+// =============================================
 // SITORBIS INSTAGRAM FEED - OWL CAROUSEL
 // =============================================
 
@@ -15,7 +59,8 @@ if ($("#instafeed-gallery").length) {
 
     });
     galleryFeed.run();
-};
+}
+;
 // =============================================
 // SITORBIS POPULAR BLOG - OWL CAROUSEL
 // =============================================
@@ -40,4 +85,7 @@ $('.owl-carousel').owlCarousel({
         }
     }
 });
+
+
+
 
