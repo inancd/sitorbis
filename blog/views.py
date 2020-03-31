@@ -2,9 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.views.generic import RedirectView
 from django.db.models import Count
-from .models import Post, PostCategory
+from .models import Post, PostCategory, Comment
 from django.template.loader import render_to_string
-
+from .forms import CommentForm
 
 def Page(request):
     page_list = Post.objects.all()
@@ -29,13 +29,30 @@ def Category_view(request, slug):
 
 def Detail_view(request, slug):
     blog_post = get_object_or_404(Post, slug=slug)
+    comments = Comment.objects.filter(post=blog_post, reply=None).order_by('-id')
     is_liked = False
 
     if blog_post.likes.filter(id=request.user.id).exists():
         is_liked = True
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST or None)
+        if comment_form.is_valid():
+            content = request.POST.get('content')
+            reply_id = request.POST.get('comment_id')
+            comment_qs = None
+            if reply_id:
+                comment_qs = Comment.objects.get(id=reply_id)
+            comment = Comment.objects.create(post=blog_post, user=request.user, content=content, reply=comment_qs)
+            comment.save()
+            HttpResponseRedirect(blog_post.slug)
+    else:
+        comment_form = CommentForm()
     context = {
         'post': blog_post,
         'is_liked': is_liked,
+        'comments': comments,
+        'comment_form': comment_form,
 
     }
     return render(request, 'blog/blog_detail.html', context)

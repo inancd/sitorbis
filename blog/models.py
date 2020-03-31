@@ -50,4 +50,17 @@ def pre_save_post_receiever(sender, instance, *args, **kwargs):
 
 pre_save.connect(pre_save_post_receiever, sender=Post)
 
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    reply = models.ForeignKey('Comment', null=True, related_name="replies", on_delete=models.CASCADE)
+    content = models.TextField(max_length=160)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '{}-{}'.format(self.post.title, str(self.user.username))
+
+
+
+
 

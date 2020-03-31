@@ -6,7 +6,9 @@
 
 
   &__image {
-
+    img {
+      width: 100%;
+    }
   }
 
   &__title {
@@ -50,4 +52,74 @@
     
   }
 
+}
+
+/// Sitorbis Post Comment ///
+
+.strbs-post-comment {
+
+  &__list {
+    list-style: none;
+  }
+  &__title {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 300;
+
+  }
+  &__wrapper {
+    width: 100%;
+    border: 1px solid $color-white-500;
+    padding: 22px 29px 27px;
+    margin-bottom: 30px;
+  }
+  &__thumb {
+
+  }
+  &__author-date {
+    display: flex;
+    flex-direction: row;
+
+  }
+  &__author {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  &__date {
+    margin-left: 1rem;
+    font-family: $font-family-lora;
+    font-style: italic;
+    color: $color-green-500;
+  }
+  &__text {
+    margin-top: 1rem;
+  }
+  &__reply {
+
+  }
+
+  &__children {
+    list-style: none;
+  }
+  &__children-wrapper {
+    border: 1px solid $color-white-500;
+    padding: 22px 29px 27px;
+    margin-bottom: 30px;
+  }
+  &__children-author-date {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+  }
+  &__children-author {
+    margin-right: 1rem;
+  }
+  
+  @media (min-width: 1024px) {
+    &__children-wrapper{
+      margin-left: 150px;
+    }
+    
+  }
 }

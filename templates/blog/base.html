@@ -113,32 +113,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
 <script src="{% static 'js/owl.carousel.js' %}"></script>
 <script src="{% static 'js/instafeed.min.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
 
-<script>
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 13,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: true
-            },
-            600: {
-                items: 3,
-                nav: false
-            },
-            1240: {
-                items: 5,
-                nav: true,
-                loop: false
-            }
-        }
-    })
-</script>
 <script>
     $(document).ready(function (event) {
         $(document).on('click', '#like', function (event) {
@@ -160,9 +139,11 @@
                 },
             });
 
-        })
+        });
 
-    })
+    });
+
 </script>
+
 </body>
 </html>
