@@ -771,10 +771,10 @@ aside {
   }
 }
 
-.collapse {
+.collapse-reply {
   margin-top: 20px;
 }
-.collapse textarea::placeholder {
+.collapse-reply textarea::placeholder {
   font-size: 12px;
   font-style: italic;
 }

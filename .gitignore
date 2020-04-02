@@ -18,3 +18,4 @@ blog/migrations/*
 pages/migrations/*
 todo/migrations/*
 node_modules/*
+.env

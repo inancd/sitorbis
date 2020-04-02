@@ -29,7 +29,7 @@
                                aria-controls="collapseExample">
                                 Reply...
                             </a>
-                            <div class="collapse" id="collapseExample{{ foo.id }}">
+                            <div class="collapse collapse-reply" id="collapseExample{{ foo.id }}">
                                 <form method="post" class="reply-form" action=".">
                                     {% csrf_token %}
                                     <input type="hidden" name="comment_id" value="{{ foo.id }}">
