@@ -10,7 +10,7 @@
                             <div class="strbs-owl-cards__image"
                                  style="background-image: url({{ foo.picture.url }});"></div>
 
-                            <a href="{% url 'blog:category' foo.category.slug %}"
+                            <a href="javascript:void(0)"
                                class="strbs-owl-cards__category">{{ foo.category.title }}</a>
 
                             <h3 class="strbs-owl-cards__title">
@@ -41,7 +41,7 @@
                             </div>
                             <h1 class="strbs-article__title">{{ foo.title }}</h1>
                             <div class="strbs-article__category">
-                                <a href="">{{ foo.category }}</a>
+                                <a href="javascript:void(0)">{{ foo.category }}</a>
                             </div>
                             <div class="strbs-article__post-content">
                                 <a href="{% url 'blog:detail' foo.slug %}">{{ foo.text|truncatechars_html:400|safe }}</a>

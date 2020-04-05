@@ -7,11 +7,20 @@ from accounts.models import Account
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=60, help_text='Required. Add a valid email address')
+    username = forms.CharField(max_length=80, help_text='Gir Sikicem')
     password1 = forms.CharField(widget=forms.PasswordInput(), help_text='', label='Password')
-    password2 = forms.CharField(widget=forms.PasswordInput(), help_text='')
+    password2 = forms.CharField(widget=forms.PasswordInput(), help_text='', label='Password Confirm')
+
     class Meta:
         model = Account
         fields = ('email', 'username', 'fullname', 'password1', 'password2')
+
+    def clean_username(self):
+        data = self.cleaned_data.get('username').replace(" ", "").lower()
+
+        if len(data) > 5:
+            print('Yapacağanız işe sokayım')
+        return data
 
 
 class AccountauthenticationForm(forms.ModelForm):

@@ -24,9 +24,9 @@ handler404 = views.handler404
 
 
 urlpatterns = [
-    path('', include('pages.urls')),
+    path('pages/', include('pages.urls')),
     path('accounts/', include('accounts.urls')),
-    path('blog/', include('blog.urls')),
+    path('', include('blog.urls')),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls'))
 
