@@ -7,13 +7,14 @@ from accounts.models import Account
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=60, help_text='Required. Add a valid email address')
-    username = forms.CharField(max_length=80, help_text='Gir Sikicem')
+    username = forms.CharField(max_length=80)
     password1 = forms.CharField(widget=forms.PasswordInput(), help_text='', label='Password')
     password2 = forms.CharField(widget=forms.PasswordInput(), help_text='', label='Password Confirm')
+    is_terms = forms.BooleanField(label='', widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
 
     class Meta:
         model = Account
-        fields = ('email', 'username', 'fullname', 'password1', 'password2')
+        fields = ('email', 'username', 'fullname', 'password1', 'password2', 'is_terms')
 
     def clean_username(self):
         data = self.cleaned_data.get('username').replace(" ", "").lower()

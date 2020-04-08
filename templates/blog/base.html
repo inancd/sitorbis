@@ -35,7 +35,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-white-500">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="{% static 'images/logoyesil.png' %}" alt=""></a>
+        <a class="navbar-brand" href="{% url 'blog:index' %}"><img src="{% static 'images/logoyesil.png' %}" alt=""></a>
         <!--Sitorbis User Profile -->
         <div class="strbs-author-control order-lg-3">
             {% if user.is_authenticated %}

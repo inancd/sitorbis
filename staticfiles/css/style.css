@@ -278,6 +278,13 @@ body {
   font-size: 14px;
 }
 
+.strbs-reset-done {
+  padding: 2rem;
+}
+.strbs-reset-done p {
+  color: #fff;
+}
+
 @media (min-width: 1024px) {
   .navbar {
     height: 65px;

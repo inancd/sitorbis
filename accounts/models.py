@@ -39,6 +39,7 @@ class Account(AbstractBaseUser):
     email = models.EmailField(max_length=60, unique=True, verbose_name='Email')
     username = models.CharField(max_length=30, unique=True, verbose_name='Username')
     fullname = models.CharField(max_length=30, unique=True, verbose_name='Full Name')
+    is_terms = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
