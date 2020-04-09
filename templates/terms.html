@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block wrapper %}
+    <section class="section">
+        <div class="container">
+            <div class="strbs-policy">
+                <h4>{{ query.title }}</h4>
+                <div class="strbs-policy__context">
+                    {{ query.context|safe }}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

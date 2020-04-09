@@ -58,7 +58,8 @@
                                         <div class="form-check">
                                             {{ registration_form.is_terms }}
                                             <label class="form-check-label" for="gridCheck">
-                                                I have read and agreed <a href="">Terms of Use</a> and <a href="">Privacy Policy.</a>
+                                                I read the <a href="{% url 'page:privacy-policy' %}" target="_blank">protecting of personal data and privacy policy</a>. I accept the
+                                                <a href="{% url 'page:terms' %}" target="_blank">terms of use</a> and <a href="{% url 'page:privacy-statement' %}" target="_blank">privacy statement.</a>
                                             </label>
                                         </div>
                                     </div>
