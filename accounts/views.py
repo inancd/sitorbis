@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
-from accounts.forms import RegistrationForm, AccountauthenticationForm
+from accounts.forms import RegistrationForm, AccountauthenticationForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -57,4 +57,16 @@ def logout_view(request):
 
 @login_required
 def profile_view(request):
-    return render(request, 'accounts/profile.html')
+    if request.method == 'POST':
+        query = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if query.is_valid():
+            query.save()
+            return redirect('accounts:profile')
+
+    else:
+        query = ProfileForm(instance=request.user.profile)
+    context = {
+        'query': query
+    }
+
+    return render(request, 'accounts/profile.html', context)

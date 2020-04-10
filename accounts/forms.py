@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 
 
-from accounts.models import Account
+from accounts.models import Account, Profile
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=60, help_text='Required. Add a valid email address')
@@ -38,3 +38,15 @@ class AccountauthenticationForm(forms.ModelForm):
 
             if not authenticate(email=email, password=password):
                 raise forms.ValidationError("Invalid login")
+
+class ProfileUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ('author', 'profile_picture', 'birth_day', 'sex', 'websites')
+
+class ProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ('profile_picture', 'sex', 'websites')

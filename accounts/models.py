@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db.models.signals import post_save
 from django.conf import settings
+from PIL import Image
 
 # Create your models here.
 
@@ -65,8 +66,20 @@ class Profile(models.Model):
     profile_picture = models.ImageField(default='profile/default.jpg', blank=True, upload_to='profile/%Y/%m/%d/')
     birth_day = models.DateField(null=True, blank=True)
     sex = models.CharField(max_length=20, choices=SEX, default='1', blank=True, null=True)
-    websites = models.CharField(max_length=50, null=True, blank=True)
+    websites = models.URLField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return self.author.username
+
+
+class SocialMediaModel(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    instagram = models.CharField(max_length=80)
+    facebook = models.CharField(max_length=80)
+    twitter = models.CharField(max_length=80)
+    linkedin = models.CharField(max_length=80)
+
+    def __str__(self):
+        return self.profile.author.username
+
 
