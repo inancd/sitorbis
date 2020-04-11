@@ -282,6 +282,14 @@ body {
   font-size: 14px;
 }
 
+.btn-news {
+  width: 100%;
+  color: #F7F2EE;
+  background-color: #303030;
+  border-radius: 0;
+  line-height: 2em;
+}
+
 .strbs-reset-done {
   padding: 2rem;
 }
@@ -654,6 +662,77 @@ aside {
   opacity: 1;
 }
 
+.strbs-footer-about {
+  margin-top: 40px;
+  padding: 0 25px;
+}
+
+.strbs-footer-follow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding: 0 25px;
+}
+.strbs-footer-follow__link {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.strbs-footer-follow__icon {
+  text-align: center;
+  color: #303030;
+  font-size: 2em;
+}
+.strbs-footer-follow__context {
+  color: #565050;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+.strbs-footer-newsletter {
+  margin-top: 40px;
+  padding: 0 25px;
+}
+.strbs-footer-newsletter__form {
+  border-radius: 0 !important;
+}
+.strbs-footer-newsletter__form::placeholder {
+  font-size: 12px;
+  font-family: "Lora", serif;
+  text-align: center;
+}
+
+.strbs-footer-bottom {
+  background-color: #f7f2ee;
+  margin-top: 50px;
+  padding: 20px 0;
+}
+.strbs-footer-bottom__reserved {
+  font-family: "Lora", serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #565050;
+}
+.strbs-footer-bottom__menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+}
+.strbs-footer-bottom__item {
+  padding: 0 20px;
+}
+.strbs-footer-bottom__link {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #565050;
+}
+.strbs-footer-bottom__link:hover {
+  text-decoration: none;
+  color: #303030;
+}
+
 .strbs-flex-row {
   display: flex;
   flex-direction: row;
@@ -909,7 +988,7 @@ aside {
   position: relative;
   font-weight: 400;
   letter-spacing: 0.3em;
-  font-size: 14px;
+  font-size: 0.8em;
   text-transform: uppercase;
 }
 
