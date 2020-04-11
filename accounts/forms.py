@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
-
+from PIL import Image
 
 from accounts.models import Account, Profile
 
@@ -46,7 +46,15 @@ class ProfileUpdateForm(forms.ModelForm):
         fields = ('author', 'profile_picture', 'birth_day', 'sex', 'websites')
 
 class ProfileForm(forms.ModelForm):
+    profile_picture = forms.ImageField()
 
     class Meta:
         model = Profile
         fields = ('profile_picture', 'sex', 'websites')
+
+
+
+
+
+
+

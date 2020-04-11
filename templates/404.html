@@ -1,10 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Not Found</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 </head>
-<body>
-Hopsss
+<body class="strbs-404-body">
+<div class="container p-0">
+    <div class="row no-gutters">
+        <div class="col-sm-12 text-center">
+            <div class="strbs-404-page mt-5">
+                <img src="../staticfiles/images/404.png" alt="" class="img-fluid">
+                <h1 class="strbs-404-page__text-box">404</h1>
+                <h3>Oops! This Page is Not Found.</h3>
+                <p>The requested page dose not exist.</p>
+                <a href="{% url 'blog:index' %}" class="btn btn-primary mt-3">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

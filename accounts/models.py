@@ -71,7 +71,6 @@ class Profile(models.Model):
     def __str__(self):
         return self.author.username
 
-
 class SocialMediaModel(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     instagram = models.CharField(max_length=80)
