@@ -57,8 +57,10 @@ def logout_view(request):
 
 @login_required
 def profile_view(request):
+
     if request.method == 'POST':
         query = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+
         if query.is_valid():
             query.save()
             return redirect('accounts:profile')
@@ -66,7 +68,7 @@ def profile_view(request):
     else:
         query = ProfileForm(instance=request.user.profile)
     context = {
-        'query': query
+        'query': query,
     }
 
     return render(request, 'accounts/profile.html', context)

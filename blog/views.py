@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.views.generic import RedirectView
 from django.db.models import Count
-from .models import Post, PostCategory, Comment
+from .models import Post, PostCategory, Comment, Newsletter
 from django.template.loader import render_to_string
 from .forms import CommentForm
 
@@ -80,3 +80,4 @@ def like_post(request):
     if request.is_ajax():
         html = render_to_string('blog/like_section.html', context, request=request)
         return JsonResponse({'form': html})
+

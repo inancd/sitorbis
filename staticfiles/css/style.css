@@ -992,6 +992,28 @@ aside {
   text-transform: uppercase;
 }
 
+.strbs-user-social__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.strbs-user-social__item {
+  width: 50%;
+  margin-bottom: 20px;
+}
+.strbs-user-social__link {
+  font-size: 28px;
+  color: #303030;
+  display: flex;
+  flex-direction: column;
+}
+.strbs-user-social__context {
+  font-size: 10px;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+
 .login-page {
   background-color: #303030;
   min-height: 100vh;

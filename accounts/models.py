@@ -67,18 +67,13 @@ class Profile(models.Model):
     birth_day = models.DateField(null=True, blank=True)
     sex = models.CharField(max_length=20, choices=SEX, default='1', blank=True, null=True)
     websites = models.URLField(max_length=50, null=True, blank=True)
+    instagram = models.URLField(max_length=80, blank=True)
+    facebook = models.URLField(max_length=80,  blank=True)
+    twitter = models.URLField(max_length=80,  blank=True)
+    linkedin = models.URLField(max_length=80, blank=True)
 
     def __str__(self):
         return self.author.username
 
-class SocialMediaModel(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    instagram = models.CharField(max_length=80)
-    facebook = models.CharField(max_length=80)
-    twitter = models.CharField(max_length=80)
-    linkedin = models.CharField(max_length=80)
-
-    def __str__(self):
-        return self.profile.author.username
 
 

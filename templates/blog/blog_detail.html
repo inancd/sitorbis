@@ -43,9 +43,34 @@
                         </div>
 
                         <div class="strbs-user-social">
-                             <div class="strbs-instagram__heading">
+                            <div class="strbs-instagram__heading">
                                 <span class="strbs-instagram__before"></span>
                                 <h6 class="strbs-instagram__widget">Follow Us</h6>
+                                <div class="strbs-user-social__wrapper">
+                                    <div class="strbs-user-social__item">
+                                        <a href="{{ post.author.profile.instagram }}" class="strbs-user-social__link"><i class="fab fa-instagram"></i></a>
+                                        <span class="strbs-user-social__context">Instagram</span>
+                                    </div>
+
+                                    <div class="strbs-user-social__item">
+                                        <a href="{{ post.author.profile.facebook }}" class="strbs-user-social__link">
+                                            <i class="fab fa-facebook"></i>
+                                            <span class="strbs-user-social__context">Facebook</span>
+                                        </a>
+
+                                    </div>
+
+                                    <div class="strbs-user-social__item">
+                                        <a href="{{ post.author.profile.twitter }}" class="strbs-user-social__link"><i class="fab fa-twitter"></i></a>
+                                        <span class="strbs-user-social__context">Twitter</span>
+                                    </div>
+
+                                    <div class="strbs-user-social__item">
+                                        <a href="{{ post.author.profile.linkedin }}" class="strbs-user-social__link"><i class="fab fa-linkedin"></i></a>
+                                        <span class="strbs-user-social__context">Linkedin</span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         <div class="strbs-instagram">

@@ -60,6 +60,12 @@ class Comment(models.Model):
     def __str__(self):
         return '{}-{}'.format(self.post.title, str(self.user.username))
 
+class Newsletter(models.Model):
+    newsletter = models.EmailField(max_length=120)
+
+    def __str__(self):
+        return self.newsletter
+
 
 
 

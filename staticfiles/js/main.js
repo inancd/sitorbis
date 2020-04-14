@@ -41,6 +41,10 @@ $(document).ready(function (event) {
 
 });
 
+// =============================================
+// SITORBIS NEWSLETTER AJAX
+// =============================================
+
 
 // =============================================
 // SITORBIS INSTAGRAM FEED - OWL CAROUSEL

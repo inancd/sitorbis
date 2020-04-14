@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comment
+from .models import Comment, Newsletter
 from django.conf import settings
 
 class CommentForm(forms.ModelForm):
@@ -7,3 +7,10 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('content',)
+
+
+class NewsletterForm(forms.ModelForm):
+    newsletter = forms.EmailField(label="", widget=forms.EmailInput(attrs={'class': 'form-control strbs-footer-newsletter__form', 'placeholder': 'Email Adress'}))
+    class Meta:
+        model = Newsletter
+        fields = ('newsletter', )

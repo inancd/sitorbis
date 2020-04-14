@@ -50,8 +50,7 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('profile_picture', 'sex', 'websites')
-
+        fields = ('profile_picture', 'sex', 'websites', 'instagram', 'facebook', 'twitter', 'linkedin')
 
 
 

@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -103,6 +104,17 @@
 
     </div>
 </nav>
+<section>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="container">
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</section>
 {% block wrapper %}
 
 {% endblock %}
@@ -118,7 +130,7 @@
                     <p>
                         Sitorbis is a socio-digital platform that get together special interest tourism stakeholders and
                         enables them to interact.<br/>
-                        “Tourism for non-tourists”
+                        <i>“Tourism for non-tourists”</i>
                     </p>
                 </div>
 
@@ -151,12 +163,12 @@
                 </div>
 
                 <div class="strbs-footer-newsletter">
-                    <form action="">
+                    <form action="post">
+                        {% csrf_token %}
                         <div class="form-group">
-                            <input type="email" class="form-control strbs-footer-newsletter__form"
-                                   placeholder="Email Adress">
+                            {{ forms|crispy }}
                         </div>
-                        <button class="btn btn-news">Newsletter</button>
+                        <button type="submit" class="btn btn-news">Newsletter</button>
                     </form>
                 </div>
             </div>
