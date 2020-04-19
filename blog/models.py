@@ -41,7 +41,7 @@ class Post(models.Model):
         return self.likes.count()
 
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'slug': self.slug})
+        return reverse('blog:detail', kwargs={'slug': self.slug})
 
 
 def pre_save_post_receiever(sender, instance, *args, **kwargs):

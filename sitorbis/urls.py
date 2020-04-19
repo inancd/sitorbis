@@ -15,20 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.contrib.sitemaps import GenericSitemap
+from django.contrib.sitemaps.views import sitemap
 from django.conf.urls.static import static
 from django.conf import settings
 from . import views
+from blog.models import Post
+from blog.sitemaps import BlogSitemap
 
 handler404 = views.handler404
 
+sitemaps = {
+    'blog': BlogSitemap
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pages/', include('pages.urls')),
     path('accounts/', include('accounts.urls')),
     path('', include('blog.urls')),
-    path('ckeditor/', include('ckeditor_uploader.urls'))
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps})
 
 ]
 
