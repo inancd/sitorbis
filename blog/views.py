@@ -7,7 +7,7 @@ from django.template.loader import render_to_string
 from .forms import CommentForm
 
 def Page(request):
-    page_list = Post.objects.all()
+    page_list = Post.objects.filter().order_by("-dated_posted")
     page_popular = Post.objects.filter(editor_featured=True).order_by("-dated_posted")
     popular_post = Post.objects.annotate(likes_count=Count('likes')).order_by('-likes_count')[:5]
 

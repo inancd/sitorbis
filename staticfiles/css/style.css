@@ -1014,6 +1014,10 @@ aside {
   display: flex;
   flex-direction: column;
 }
+.strbs-user-social__link:hover {
+  text-decoration: none;
+  color: #565050;
+}
 .strbs-user-social__context {
   font-size: 10px;
   padding-top: 10px;
