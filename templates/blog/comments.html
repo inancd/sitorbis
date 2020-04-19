@@ -73,4 +73,6 @@
         {{ comment_form|crispy}}
         <input type="submit" value="Submit" class="btn btn-outline-success">
     </form>
+    {% else %}
+    <p>Please <a href="{% url 'accounts:loginpage' %}">login</a> to comment</p>
 {% endif %}

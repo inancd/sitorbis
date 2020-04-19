@@ -125,7 +125,12 @@
     background-size: cover;
     background-position: top 10% right 40%;
   }
-
+  &__link {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+  }
   &__category {
     font-size: 10px;
     margin: 0 !important;

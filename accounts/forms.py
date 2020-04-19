@@ -45,9 +45,15 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ('author', 'profile_picture', 'birth_day', 'sex', 'websites')
 
+Private = (
+    ('', 'Private...'),
+    ('ML', 'Male'),
+    ('WM', 'Woman'),
+    ('PR', 'Custom')
+)
 class ProfileForm(forms.ModelForm):
     profile_picture = forms.ImageField()
-
+    sex = forms.ChoiceField(choices=Private, label='Private', required=False)
     class Meta:
         model = Profile
         fields = ('profile_picture', 'sex', 'websites', 'instagram', 'facebook', 'twitter', 'linkedin')

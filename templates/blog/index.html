@@ -8,7 +8,9 @@
                     <div class="item">
                         <div class="strbs-owl-cards">
                             <div class="strbs-owl-cards__image"
-                                 style="background-image: url({{ foo.picture.url }});"></div>
+                                 style="background-image: url({{ foo.picture.url }});">
+                                <a href="{% url 'blog:detail' foo.slug %}" class="strbs-owl-cards__link"></a>
+                            </div>
 
                             <a href="javascript:void(0)"
                                class="strbs-owl-cards__category">{{ foo.category.title }}</a>
@@ -37,7 +39,7 @@
                     {% for foo in page %}
                         <article class="strbs-article">
                             <div class="strbs-wrapper-blog__image">
-                                <img src="{{ foo.picture.url }}" alt="">
+                                <a href="{% url 'blog:detail' foo.slug %}"><img src="{{ foo.picture.url }}" alt=""></a>
                             </div>
                             <h1 class="strbs-article__title">{{ foo.title }}</h1>
                             <div class="strbs-article__category">

@@ -32,9 +32,9 @@ DEFAULT_FROM_EMAIL = 'team@sitorbis.com'
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
     'pages.apps.PagesConfig',
-    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

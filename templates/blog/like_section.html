@@ -15,6 +15,7 @@
         {% endif %}
     </form>
 {% else %}
+    <img src="{% static 'images/clap.png' %}" alt="">
     {{ post.likes.count }}
 {% endif %}
 

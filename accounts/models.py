@@ -30,16 +30,16 @@ class AccountManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-SEX = (
-    ('', 'Sex...'),
+Private = (
+    ('', 'Private...'),
     ('ML', 'Male'),
     ('WM', 'Woman'),
-    ('PR', 'Private')
+    ('PR', 'Custom')
 )
 class Account(AbstractBaseUser):
     email = models.EmailField(max_length=60, unique=True, verbose_name='Email')
     username = models.CharField(max_length=30, unique=True, verbose_name='Username')
-    fullname = models.CharField(max_length=30, unique=True, verbose_name='Full Name')
+    fullname = models.CharField(max_length=30, unique=False, verbose_name='Full Name')
     is_terms = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -65,9 +65,9 @@ class Profile(models.Model):
     author = models.OneToOneField(settings.AUTH_USER_MODEL, blank=True, on_delete=models.CASCADE)
     profile_picture = models.ImageField(default='profile/default.jpg', blank=True, upload_to='profile/%Y/%m/%d/')
     birth_day = models.DateField(null=True, blank=True)
-    sex = models.CharField(max_length=20, choices=SEX, default='1', blank=True, null=True)
+    sex = models.CharField(max_length=20, choices=Private, default='1', blank=True, null=True)
     websites = models.URLField(max_length=50, null=True, blank=True)
-    instagram = models.URLField(max_length=80, blank=True)
+    instagram = models.URLField(max_length=120, blank=True)
     facebook = models.URLField(max_length=80,  blank=True)
     twitter = models.URLField(max_length=80,  blank=True)
     linkedin = models.URLField(max_length=80, blank=True)
