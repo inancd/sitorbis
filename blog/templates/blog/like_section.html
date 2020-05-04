@@ -1,0 +1,21 @@
+{% load static %}
+{% if request.user.is_authenticated %}
+    <form action="{% url 'blog:like_post' %}" method="post">
+        {% csrf_token %}
+        {% if is_liked %}
+            <button type="submit" id="like" name="post_id" value="{{ post.id }}" class="btn">
+                <img src="{% static 'images/claplink.png' %}" alt="">
+                <span class="like-section">{{ post.likes.count }}</span>
+            </button>
+        {% else %}
+            <button type="submit" id="like" name="post_id" value="{{ post.id }}" class="btn">
+                <img src="{% static 'images/clap.png' %}" alt="">
+                <span class="like-section">{{ post.likes.count }}</span>
+            </button>
+        {% endif %}
+    </form>
+{% else %}
+    <img src="{% static 'images/clap.png' %}" alt="">
+    {{ post.likes.count }}
+{% endif %}
+

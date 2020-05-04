@@ -2,6 +2,39 @@ footer {
 
 }
 
+.strbs-footer {
+
+  &__heading {
+    position: relative;
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  &__before {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: $color-white-500;
+    top: 15px;
+    position: absolute;
+    left: 0;
+  }
+
+  &__widget {
+    display: inline-block;
+    width: auto;
+    margin: 0 0 3px;
+    z-index: 90;
+    background-color: #fff;
+    padding: 0 12px;
+    position: relative;
+    font-weight: 400;
+    letter-spacing: .3em;
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
+}
+
 .strbs-footer-about {
   margin-top: 40px;
   padding: 0 25px;
@@ -59,12 +92,13 @@ footer {
     font-weight: 300;
     letter-spacing: 1px;
     color: $color-grey-200;
+    text-align: center;
   }
 
   &__menu {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
 
     list-style: none;
   }
@@ -72,14 +106,26 @@ footer {
   &__item {
     padding: 0 20px;
   }
+
   &__link {
     text-transform: uppercase;
-    font-size: .8em;
+    font-size: .5em;
     color: $color-grey-200;
 
     &:hover {
       text-decoration: none;
       color: $color-grey-300;
+    }
+  }
+  @media (min-width:1024px){
+    &__reserved {
+      text-align: left;
+    }
+    &__menu {
+      justify-content: flex-end;
+    }
+    &__link {
+      font-size: .8em;
     }
   }
 }

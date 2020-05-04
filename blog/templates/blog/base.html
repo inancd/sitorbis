@@ -167,11 +167,10 @@
                 </div>
 
                 <div class="strbs-footer-newsletter">
-                    <form action="/newsletter/" method="post">
+                    <form action="post">
                         {% csrf_token %}
                         <div class="form-group">
-                            <input type="hidden" value="/" name="next">
-                            <input type="email" name="newsletter" required="required" class="form-control strbs-footer-newsletter__form" placeholder="Email Adress">
+                            {{ forms|crispy }}
                         </div>
                         <button type="submit" class="btn btn-news">Newsletter</button>
                     </form>

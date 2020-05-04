@@ -1,0 +1,105 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block wrapper %}
+    <section class="section">
+        <div class="container">
+            <div class="owl-carousel owl-theme">
+                {% for foo in slider %}
+                    <div class="item">
+                        <div class="strbs-owl-cards">
+                            <div class="strbs-owl-cards__image"
+                                 style="background-image: url({{ foo.picture.url }});">
+                                <a href="{% url 'blog:detail' foo.slug %}" class="strbs-owl-cards__link"></a>
+                            </div>
+
+                            <a href="javascript:void(0)"
+                               class="strbs-owl-cards__category">{{ foo.category.title }}</a>
+
+                            <h3 class="strbs-owl-cards__title">
+                                <a href="{% url 'blog:detail' foo.slug %}">{{ foo.title|truncatechars:40 }}</a>
+                            </h3>
+                            <div class="strbs-owl-cards__user-detail">
+                                <a href="" class="strbs-owl-cards__user-name">{{ foo.author.fullname }}</a>
+                                <a href="" class="strbs-owl-cards__last-date">{{ foo.dated_posted|date:'F d, Y' }}</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="section-2 ">
+        <div class="container">
+            <div class="row strbs-gutter">
+                <div class="col col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                    <div class="strbs-wrapper-blog__heading">
+                        <span class="strbs-wrapper-blog__before"></span>
+                        <h6 class="strbs-wrapper-blog__widget">new post</h6>
+                    </div>
+                    {% for foo in page %}
+                        <article class="strbs-article">
+                            <div class="strbs-wrapper-blog__image">
+                                <a href="{% url 'blog:detail' foo.slug %}"><img src="{{ foo.picture.url }}" alt=""></a>
+                            </div>
+                            <h1 class="strbs-article__title">{{ foo.title }}</h1>
+                            <div class="strbs-article__category">
+                                <a href="javascript:void(0)">{{ foo.category }}</a>
+                            </div>
+                            <div class="strbs-article__post-content">
+                                <a href="{% url 'blog:detail' foo.slug %}">{{ foo.text|truncatechars_html:400|safe }}</a>
+                            </div>
+
+                            <div class="strbs-article__author-date">
+                                <div class="strbs-article__author">
+                                    <a class="strbs-article__author-link" href="#">{{ foo.author.fullname }}</a>
+                                </div>
+
+                                <a class="strbs-article__readmore" href="{% url 'blog:detail' foo.slug %}">Read More</a>
+                                <a href="" class="strbs-article__date">{{ foo.dated_posted|date:'F d, Y' }}</a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+                <div class="col col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 ">
+                    <div class="strbs-wrapper-blog__heading">
+                        <span class="strbs-wrapper-blog__before"></span>
+                        <h6 class="strbs-wrapper-blog__widget">popular post</h6>
+                    </div>
+
+                    <div class="strbs-popular-post">
+                        {% for foo in popular_post %}
+                            <div class="strbs-popular-post__content">
+                                <div class="strbs-popular-post__thumb">
+                                    <img src="{{ foo.picture.url }}" alt="" class="strbs-popular-post__popular-thumb">
+                                </div>
+                                <div class="strbs-popular-post__title">
+                                    <h3>
+                                        <a href="{% url 'blog:detail' foo.slug %}">{{ foo.title | truncatechars:50 }}</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="strbs-wrapper-blog__heading">
+                        <span class="strbs-wrapper-blog__before"></span>
+                        <h6 class="strbs-wrapper-blog__widget">sıtınstagram</h6>
+                    </div>
+
+                    <div class="strbs-instagram-list">
+                        <div id="instafeed-gallery"></div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-2">
+
+    </section>
+
+
+{% endblock %}
+

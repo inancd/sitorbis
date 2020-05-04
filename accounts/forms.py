@@ -1,9 +1,13 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
+from django.db.models.signals import post_save
+from django.core.exceptions import ValidationError
 from PIL import Image
+from .models import MediaModel
 
 from accounts.models import Account, Profile
+
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=60, help_text='Required. Add a valid email address')
@@ -39,11 +43,6 @@ class AccountauthenticationForm(forms.ModelForm):
             if not authenticate(email=email, password=password):
                 raise forms.ValidationError("Invalid login")
 
-class ProfileUpdateForm(forms.ModelForm):
-
-    class Meta:
-        model = Profile
-        fields = ('author', 'profile_picture', 'birth_day', 'sex', 'websites')
 
 Private = (
     ('', 'Private...'),
@@ -51,15 +50,17 @@ Private = (
     ('WM', 'Woman'),
     ('PR', 'Custom')
 )
+
+
 class ProfileForm(forms.ModelForm):
     profile_picture = forms.ImageField()
     sex = forms.ChoiceField(choices=Private, label='Private', required=False)
+
     class Meta:
         model = Profile
-        fields = ('profile_picture', 'sex', 'websites', 'instagram', 'facebook', 'twitter', 'linkedin')
+        fields = ('sex', 'profile_picture')
 
-
-
-
-
-
+class SocialMediaUpdateForm(forms.ModelForm):
+    class Meta:
+        model = MediaModel
+        fields = ('instagram', 'facebook', 'twitter', 'linkedin')

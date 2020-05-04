@@ -9,8 +9,9 @@ class CommentForm(forms.ModelForm):
         fields = ('content',)
 
 
-class NewsletterForm(forms.ModelForm):
+class NewsletterCreateForm(forms.ModelForm):
     newsletter = forms.EmailField(label="", widget=forms.EmailInput(attrs={'class': 'form-control strbs-footer-newsletter__form', 'placeholder': 'Email Adress'}))
     class Meta:
         model = Newsletter
-        fields = ('newsletter', )
+        fields = '__all__'
+

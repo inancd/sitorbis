@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',
+    'sorl.thumbnail',
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -78,7 +79,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'blog.context_processors.blogs',
-                'blog.context_processors.newsletter_view',
+
             ],
         },
     },

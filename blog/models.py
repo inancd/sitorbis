@@ -15,7 +15,7 @@ class PostCategory(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('category', kwargs={'slug': self.slug})
+        return reverse('blog:category', kwargs={'slug': self.slug})
 
 def pre_save_post_category_receiever(sender, instance, *args, **kwargs):
     if not instance.slug:
@@ -32,6 +32,7 @@ class Post(models.Model):
     dated_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     picture = models.ImageField(upload_to='blog/%Y/%m/%d/')
+    source = models.TextField(blank=True)
     editor_featured = models.BooleanField()
 
     def __str__(self):

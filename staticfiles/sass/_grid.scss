@@ -58,7 +58,8 @@
       padding-left: 0;
     }
   }
-  .strbs-gutter {
+  @media (min-width: 768px) {
+    .strbs-gutter {
     margin-right: -35px;
     margin-left: -35px;
     >.col,
@@ -66,6 +67,8 @@
       padding-left: 35px;
       padding-right: 35px;
     }
+  }
+    
   }
 }
 

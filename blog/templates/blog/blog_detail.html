@@ -24,14 +24,10 @@
                         <div class="strbs-post-detail__textarea">
                             {{ post.text|safe }}
                         </div>
-                        <div class="strbs-post-detail__source">
-                            Source:<br/>
-                            {{ post.source}}
-                        </div>
 
                     </div>
                     <div class="strbs-post-comment">
-                        <h3 class="strbs-post-comment__title">Comment :</h3>
+                        <h3 class="strbs-post-comment__title">Comments :</h3>
                         {% include 'blog/comments.html' %}
                     </div>
                 </div>

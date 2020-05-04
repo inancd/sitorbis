@@ -1,10 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.views.generic import RedirectView
+from django.contrib import messages
 from django.db.models import Count
 from .models import Post, PostCategory, Comment, Newsletter
 from django.template.loader import render_to_string
-from .forms import CommentForm
+from .forms import CommentForm, NewsletterCreateForm
 
 def Page(request):
     page_list = Post.objects.filter().order_by("-dated_posted")
@@ -81,3 +82,21 @@ def like_post(request):
         html = render_to_string('blog/like_section.html', context, request=request)
         return JsonResponse({'form': html})
 
+
+def NewsletterCreateView(request):
+    if request.method == 'POST':
+        form = NewsletterCreateForm(request.POST)
+        next_url = request.POST.get("next") or None
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.save()
+            messages.success(request, f'Başarıyla Email Listemize alındınız')
+            if next_url != None:
+                return redirect(next_url)
+    else:
+        form = NewsletterCreateForm()
+    context = {
+        'form': form
+    }
+
+    return render(request, 'components/newsletter.html', context)

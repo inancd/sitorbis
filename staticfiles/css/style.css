@@ -312,6 +312,7 @@ body {
 
 .nav-link {
   text-transform: uppercase;
+  font-size: 12px;
 }
 
 .strbs-author-control {
@@ -361,6 +362,26 @@ body {
 .strbs-navbar-search__icon {
   width: 26px;
   height: 26px;
+}
+
+.strbs-settings-menu {
+  border-bottom: 1px #F7F2EE solid;
+}
+.strbs-settings-menu__nav {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+.strbs-settings-menu__item {
+  padding: 0 10px;
+}
+.strbs-settings-menu__link {
+  color: #303030;
+  font-weight: 500;
+}
+.strbs-settings-menu__link:hover {
+  color: #565050;
+  text-decoration: none;
 }
 
 .strbs-btn {
@@ -621,7 +642,7 @@ aside {
   list-style: none;
 }
 .strbs-instagram-feed li {
-  width: 50%;
+  width: 33.3%;
   float: left;
   position: relative;
   box-sizing: border-box;
@@ -637,7 +658,7 @@ aside {
 .strbs-instagram-feed li a img {
   width: 100%;
   display: block;
-  height: 135px;
+  height: 80px;
 }
 .strbs-instagram-feed li a::after {
   display: block;
@@ -650,6 +671,16 @@ aside {
   transition: opacity 0.2s ease-in-out;
   position: absolute;
   opacity: 1;
+}
+@media (min-width: 768px) {
+  .strbs-instagram-feed li a img {
+    height: 160px;
+  }
+}
+@media (min-width: 1024px) {
+  .strbs-instagram-feed li a img {
+    height: 80px;
+  }
 }
 
 .strbs-instagram-icon {
@@ -666,6 +697,34 @@ aside {
 
 .strbs-instagram-icon:hover {
   opacity: 1;
+}
+
+.strbs-footer__heading {
+  position: relative;
+  text-align: center;
+  margin: 40px 0;
+}
+.strbs-footer__before {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: #F7F2EE;
+  top: 15px;
+  position: absolute;
+  left: 0;
+}
+.strbs-footer__widget {
+  display: inline-block;
+  width: auto;
+  margin: 0 0 3px;
+  z-index: 90;
+  background-color: #fff;
+  padding: 0 12px;
+  position: relative;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  font-size: 0.8em;
+  text-transform: uppercase;
 }
 
 .strbs-footer-about {
@@ -719,11 +778,12 @@ aside {
   font-weight: 300;
   letter-spacing: 1px;
   color: #565050;
+  text-align: center;
 }
 .strbs-footer-bottom__menu {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   list-style: none;
 }
 .strbs-footer-bottom__item {
@@ -731,12 +791,23 @@ aside {
 }
 .strbs-footer-bottom__link {
   text-transform: uppercase;
-  font-size: 0.8em;
+  font-size: 0.5em;
   color: #565050;
 }
 .strbs-footer-bottom__link:hover {
   text-decoration: none;
   color: #303030;
+}
+@media (min-width: 1024px) {
+  .strbs-footer-bottom__reserved {
+    text-align: left;
+  }
+  .strbs-footer-bottom__menu {
+    justify-content: flex-end;
+  }
+  .strbs-footer-bottom__link {
+    font-size: 0.8em;
+  }
 }
 
 .strbs-flex-row {
@@ -803,6 +874,13 @@ aside {
   color: #565050 !important;
   font-size: 16px;
 }
+.strbs-post-detail__source {
+  font-size: 0.8em;
+  font-family: "Lora", serif;
+  font-style: italic;
+  background-color: #f2f2f2;
+  padding: 10px 20px;
+}
 @media (min-width: 1024px) {
   .strbs-post-detail__title {
     font-size: 1.7em;
@@ -816,10 +894,11 @@ aside {
   list-style: none;
 }
 .strbs-post-comment__title {
-  font-size: 20px;
+  font-size: 16px;
   text-transform: uppercase;
   font-weight: 300;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 .strbs-post-comment__wrapper {
   width: 100%;
@@ -994,7 +1073,7 @@ aside {
   position: relative;
   font-weight: 400;
   letter-spacing: 0.3em;
-  font-size: 0.8em;
+  font-size: 14px;
   text-transform: uppercase;
 }
 
@@ -1203,7 +1282,7 @@ label {
 .strbs-wrapper-blog__heading {
   position: relative;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 .strbs-wrapper-blog__before {
   content: "";

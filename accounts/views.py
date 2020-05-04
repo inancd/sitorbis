@@ -1,11 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
-from accounts.forms import RegistrationForm, AccountauthenticationForm, ProfileForm
+from accounts.forms import RegistrationForm, AccountauthenticationForm, ProfileForm, SocialMediaUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.db.models.signals import post_save
 from PIL import Image
-# Create your views here.
 
+
+# Create your views here.
 def login_view(request):
     context = {}
     user = request.user
@@ -30,6 +32,7 @@ def login_view(request):
     context['login_form'] = form
     return render(request, 'accounts/login.html', context)
 
+
 def registiration_view(request):
     context = {}
     if request.POST:
@@ -50,19 +53,21 @@ def registiration_view(request):
 
     return render(request, 'accounts/signup.html', context)
 
+
 def logout_view(request):
     logout(request)
     messages.success(request, f'You have successfully logged out.')
     return redirect('blog:index')
 
+
 @login_required
 def profile_view(request):
-
     if request.method == 'POST':
         query = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
 
         if query.is_valid():
             query.save()
+            messages.success(request, f'Yes Update')
             return redirect('accounts:profile')
 
     else:
@@ -72,3 +77,20 @@ def profile_view(request):
     }
 
     return render(request, 'accounts/profile.html', context)
+
+@login_required
+def SocialMediaUpdateView(request):
+    form = SocialMediaUpdateForm(request.POST or None, instance=request.user.mediamodel)
+
+    if form.is_valid():
+        form.save()
+        if form:
+            messages.success(request, f'Update')
+        else:
+            messages.error(request, f'No Update')
+        return redirect('accounts:social')
+
+    context = {
+        'form': form
+    }
+    return render(request, 'accounts/social.html', context)
