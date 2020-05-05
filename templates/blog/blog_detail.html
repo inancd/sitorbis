@@ -9,7 +9,9 @@
                 <div class="col col-xl-9 col-lg-9 col-md-12 ">
                     <div class="strbs-post-detail">
                         <div class="strbs-post-detail__image">
-                            <img src="{{ post.picture.url }}" alt="" class="img-fluid">
+                            {% thumbnail post.picture "960" as im %}
+                            <img src="{{ im.url }}" alt="" class="img-fluid">
+                            {% endthumbnail %}
                         </div>
                         <h3 class="strbs-post-detail__title">
                             {{ post.title }}
@@ -56,7 +58,7 @@
                                 <div class="strbs-user-social__wrapper">
                                     {% if post.author.mediamodel.instagram %}
                                         <div class="strbs-user-social__item">
-                                            <a href="{{ post.author.profile.instagram }}"
+                                            <a href="{{ post.author.mediamodel.instagram }}"
                                                class="strbs-user-social__link">
                                                 <i class="fab fa-instagram"></i>
                                                 <span class="strbs-user-social__context">Instagram</span>
@@ -66,7 +68,7 @@
                                     {% endif %}
                                     {% if post.author.mediamodel.facebook %}
                                         <div class="strbs-user-social__item">
-                                            <a href="{{ post.author.profile.facebook }}"
+                                            <a href="{{ post.author.mediamodel.facebook }}"
                                                class="strbs-user-social__link">
                                                 <i class="fab fa-facebook"></i>
                                                 <span class="strbs-user-social__context">Facebook</span>
@@ -76,14 +78,14 @@
                                     {% endif %}
                                     {% if post.author.mediamodel.twitter %}
                                         <div class="strbs-user-social__item">
-                                            <a href="{{ post.author.profile.twitter }}" class="strbs-user-social__link"><i
+                                            <a href="{{ post.author.mediamodel.twitter }}" class="strbs-user-social__link"><i
                                                     class="fab fa-twitter"></i></a>
                                             <span class="strbs-user-social__context">Twitter</span>
                                         </div>
                                     {% endif %}
                                     {% if post.author.mediamodel.linkedin %}
                                         <div class="strbs-user-social__item">
-                                            <a href="{{ post.author.profile.linkedin }}"
+                                            <a href="{{ post.author.mediamodel.linkedin }}"
                                                class="strbs-user-social__link"><i
                                                     class="fab fa-linkedin"></i></a>
                                             <span class="strbs-user-social__context">Linkedin</span>

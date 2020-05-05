@@ -90,7 +90,7 @@ def NewsletterCreateView(request):
         if form.is_valid():
             obj = form.save(commit=False)
             obj.save()
-            messages.success(request, f'Başarıyla Email Listemize alındınız')
+            messages.success(request, f'You have been successfully added to our mail list')
             if next_url != None:
                 return redirect(next_url)
     else:

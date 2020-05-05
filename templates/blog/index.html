@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load thumbnail %}
 {% load static %}
 {% block wrapper %}
     <section class="section">
@@ -7,11 +8,12 @@
                 {% for foo in slider %}
                     <div class="item">
                         <div class="strbs-owl-cards">
+                            {% thumbnail foo.picture "960" as im %}
                             <div class="strbs-owl-cards__image"
-                                 style="background-image: url({{ foo.picture.url }});">
+                                 style="background-image: url({{ im.url }});">
                                 <a href="{% url 'blog:detail' foo.slug %}" class="strbs-owl-cards__link"></a>
                             </div>
-
+                            {% endthumbnail %}
                             <a href="javascript:void(0)"
                                class="strbs-owl-cards__category">{{ foo.category.title }}</a>
 
@@ -39,7 +41,11 @@
                     {% for foo in page %}
                         <article class="strbs-article">
                             <div class="strbs-wrapper-blog__image">
-                                <a href="{% url 'blog:detail' foo.slug %}"><img src="{{ foo.picture.url }}" alt=""></a>
+                                <a href="{% url 'blog:detail' foo.slug %}">
+                                    {% thumbnail foo.picture "960" as im %}
+                                    <img src="{{ im.url }}" alt="">
+                                    {% endthumbnail %}
+                                </a>
                             </div>
                             <h1 class="strbs-article__title">{{ foo.title }}</h1>
                             <div class="strbs-article__category">
@@ -70,7 +76,9 @@
                         {% for foo in popular_post %}
                             <div class="strbs-popular-post__content">
                                 <div class="strbs-popular-post__thumb">
-                                    <img src="{{ foo.picture.url }}" alt="" class="strbs-popular-post__popular-thumb">
+                                    {% thumbnail foo.picture "168" as im %}
+                                    <img src="{{ im.url }}" alt="" class="strbs-popular-post__popular-thumb">
+                                    {% endthumbnail %}
                                 </div>
                                 <div class="strbs-popular-post__title">
                                     <h3>
