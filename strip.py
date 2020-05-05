@@ -1,3 +1,12 @@
-deneme = 'Merhaba Dünya'
+def merhaba():
+    a=5
+    b=5
 
-print(deneme.replace(" ", ""))
+    toplam = a*b
+
+    print(toplam)
+
+    return
+
+
+merhaba()

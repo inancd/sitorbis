@@ -32,7 +32,7 @@ class Post(models.Model):
     dated_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     picture = models.ImageField(upload_to='blog/%Y/%m/%d/')
-    source = models.TextField(blank=True)
+    source = RichTextField()
     editor_featured = models.BooleanField()
 
     def __str__(self):
