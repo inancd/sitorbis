@@ -880,6 +880,8 @@ aside {
   font-style: italic;
   background-color: #f2f2f2;
   padding: 10px 20px;
+  min-width: 100%;
+  overflow: hidden;
 }
 @media (min-width: 1024px) {
   .strbs-post-detail__title {

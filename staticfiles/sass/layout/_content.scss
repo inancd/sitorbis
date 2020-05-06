@@ -48,6 +48,8 @@
     font-style: italic;
     background-color: $color-white-200;
     padding: 10px 20px;
+    min-width: 100%;
+    overflow: hidden;
   }
 
   @media (min-width: 1024px) {
