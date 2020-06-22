@@ -18,7 +18,9 @@ from django.urls import path, include
 from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
 from django.conf.urls.static import static
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.conf import settings
+from django.views.generic.base import RedirectView
 from . import views
 from blog.models import Post
 from blog.sitemaps import BlogSitemap
@@ -35,8 +37,8 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('', include('blog.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps})
-
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
+    path('ads.txt', RedirectView.as_view(url=staticfiles_storage.url('ads.txt')))
 ]
 
 if settings.DEBUG:
